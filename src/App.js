@@ -1,6 +1,6 @@
 import Games from 'components/pages/Games/Games';
 import Home from "./components/pages/Home/Home";
-import Contacts from "./components/pages/Contacts/Contacts";
+import Contacts from "./components/pages/Contact/Contacts";
 
 import './assets/styles/index.scss'
 

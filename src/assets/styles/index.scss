@@ -1,0 +1,26 @@
+
+
+* {
+    box-sizing: border-box;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-transform: none;
+}
+
+body {
+    background: #edf6ff;
+}
+
+button {
+    cursor: pointer;
+}
+
+input::placeholder {
+    padding: 5px;
+    color: grey;
+}
+

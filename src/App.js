@@ -1,3 +1,6 @@
+import './assets/styles/index.scss'
+
+
 import Home from "./components/pages/Home/Home";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";

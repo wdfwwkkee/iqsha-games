@@ -3,6 +3,7 @@
     {
       "id": 1,
       "title": "Знаток шахмат",
+      "tag" : "chess",
       "image": "assets/images/gamesTitle/Chess.jpg",
       "games": [
         {
@@ -45,6 +46,7 @@
     {
       "id": 2,
       "title": "Математика",
+      "tag" : "math",
       "image": "assets/images/gamesTitle/MathTitle.png",
       "games": [
         {
@@ -77,6 +79,7 @@
     {
       "id": 3,
       "title": "Чтение и грамота",
+      "tag" : "reading",
       "image": "assets/images/gamesTitle/ReadTitle.jpg",
       "games": [
         {
@@ -109,6 +112,7 @@
     {
       "id": 4,
       "title": "Логика и мышление",
+      "tag" : "logic",
       "image": "assets/images/gamesTitle/LogicTitle.jpg",
       "games": [
         {
@@ -141,6 +145,7 @@
     {
       "id": 5,
       "title": "Внинмание и память",
+      "tag" : "memory",
       "image": "assets/images/gamesTitle/MemoryTitle.jpg",
       "games": [
         {

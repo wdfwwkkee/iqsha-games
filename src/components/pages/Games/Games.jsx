@@ -1,15 +1,15 @@
 import React from 'react'
-import GamesList from './GamesList/GamesList'
+
+import GamesTitleList from './GamesTitleList/GamesTitleList'
 import Header from 'Layouts/LayoutsHome/Header'
 
-
 const Games = () => {
-  return (
-    <div>
-      <Header />
-      <GamesList />
-    </div>
-  )
+    return (
+        <div>
+            <Header />
+            <GamesTitleList />
+        </div>
+    )
 }
 
 export default Games

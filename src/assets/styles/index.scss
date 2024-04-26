@@ -5,6 +5,7 @@
     box-sizing: border-box;
     color: black;
     padding: 0;
+    text-transform: none;
     font-family: "Open Sans", sans-serif;
     margin: 0;
 }
@@ -27,3 +28,30 @@ input::placeholder {
     color: grey;
 }
 
+
+.wrapper {
+
+}
+
+.inner-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+.back {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+
+    svg {
+        transition: transform .3s ease;
+    }
+
+    &:hover {
+        svg {
+            transition: transform .3s ease;
+            transform: rotate(180deg);
+        }
+    }
+}

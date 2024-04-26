@@ -1,6 +1,6 @@
 import Games from 'components/pages/Games/Games';
 import Home from "./components/pages/Home/Home";
-
+import Contacts from "./components/pages/Contact/Contacts";
 
 import 'assets/styles/index.scss'
 
@@ -18,12 +18,14 @@ function App() {
         <Routes>
           <Route exact element={<Home />} path="/" />
           <Route element={<Games />} path="/games" />
+
           <Route element={<ChessGames />} path="/games/chess-games" />
           <Route element={<MathGames />} path="/games/math-games" />
           <Route element={<ReadingGames />} path="/games/reading-games" />
           <Route element={<MemoryGames />} path="/games/memory-games" />
           <Route element={<LogicGames />} path="/games/logic-games" />
 
+          <Route element={<Contacts />} path="/contacts" />
 
 
           <Route path="/*" element={<div>NotFound</div>} />

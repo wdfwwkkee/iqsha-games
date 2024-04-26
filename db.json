@@ -3,34 +3,172 @@
     {
       "id": 1,
       "title": "Знаток шахмат",
-      "image": "",
+      "image": "assets/images/gamesTitle/Chess.jpg",
       "games": [
-        
+        {
+            "id" : 1,
+            "name" : "Найди тень",
+            "image" : "assets/images/games_images/chess/chess_FindShadow.jpg"
+        },
+        {
+            "id" : 2,
+            "name" : "Пазлы",
+            "image" : "assets/images/games_images/chess/chess_Puzzle.jpg"
+        },
+        {
+            "id" : 3,
+            "name" : "Расположи фигуры",
+            "image" : "assets/images/games_images/chess/chess_figure.svg"
+        },
+        {
+            "id" : 4,
+            "name" : "Комната",
+            "image" : "assets/images/games_images/chess/chess_Room.jpg"
+        },
+        {
+            "id" : 5,
+            "name" : "Кто так ходит",
+            "image" : "assets/images/games_images/chess/chess_WhosTurn.jpg"
+        },
+        {
+            "id" : 6,
+            "name" : "Ребус",
+            "image" : "assets/images/games_images/chess/chess_Rebus.jpg"
+        },
+        {
+            "id" : 7,
+            "name" : "Загадки",
+            "image" : "assets/images/games_images/chess/chess_Riddles.jpg"
+        }
       ]
     },
     {
       "id": 2,
       "title": "Математика",
-      "image": "",
-      "games": []
+      "image": "assets/images/gamesTitle/MathTitle.png",
+      "games": [
+        {
+            "id" : 1,
+            "name" : "Число. Цифра. Количество",
+            "image" : "assets/images/games_images/math/math_number_count.png"
+        },
+        {
+            "id" : 2,
+            "name" : "Примеры в картинках",
+            "image" : "assets/images/games_images/math/math_exmPic.jpg"
+        },
+        {
+            "id" : 3,
+            "name" : "Больше-Меньше",
+            "image" : "assets/images/games_images/math/math_more_less.jpg"
+        },
+        {
+            "id" : 4,
+            "name" : "Задачи",
+            "image" : "assets/images/games_images/math/math_tasks.jpg"
+        },
+        {
+            "id" : 5,
+            "name" : "Числовой ряд",
+            "image" : "assets/images/games_images/math/math_numbers.jpg"
+        }
+      ]
     },
     {
       "id": 3,
       "title": "Чтение и грамота",
-      "image": "",
-      "games": []
+      "image": "assets/images/gamesTitle/ReadTitle.jpg",
+      "games": [
+        {
+            "id" : 1,
+            "name" : "Узнай букву по звуку",
+            "image" : "assets/images/games_images/reading/reading_SpellWord.svg"
+        },
+        {
+            "id" : 2,
+            "name" : "Состовляем слова",
+            "image" : "assets/images/games_images/reading/reading_createWord.png"
+        },
+        {
+            "id" : 3,
+            "name" : "Соедини слово с картинкой",
+            "image" : "assets/images/games_images/reading/reading_connectWord.svg"
+        },
+        {
+            "id" : 4,
+            "name" : "Прятки с буквами",
+            "image" : "assets/images/games_images/reading/reading_hiddingWord.svg"
+        },
+        {
+            "id" : 5,
+            "name" : "Прочитай слоги",
+            "image" : "assets/images/games_images/reading/reading_readSlog.png"
+        }
+      ]
     },
     {
       "id": 4,
       "title": "Логика и мышление",
-      "image": "",
-      "games": []
+      "image": "assets/images/gamesTitle/LogicTitle.jpg",
+      "games": [
+        {
+            "id" : 1,
+            "name" : "Что лишнее",
+            "image" : "assets/images/games_images/logic/logic_whatSuperfluous.jpg"
+        },
+        {
+            "id" : 2,
+            "name" : "Продолжи ряд",
+            "image" : "assets/images/games_images/logic/logic_continue.jpg"
+        },
+        {
+            "id" : 3,
+            "name" : "Назови одним словом",
+            "image" : "assets/images/games_images/logic/logic_oneWord.jpg"
+        },
+        {
+            "id" : 4,
+            "name" : "Логические загадки",
+            "image" : "assets/images/games_images/logic/logic_logicTasks.jpg"
+        },
+        {
+            "id" : 5,
+            "name" : "Логические загадки",
+            "image" : "assets/images/games_images/logic/logic_logicTasks.jpg"
+        }
+      ]
     },
     {
       "id": 5,
       "title": "Внинмание и память",
-      "image": "",
-      "games": []
+      "image": "assets/images/gamesTitle/MemoryTitle.jpg",
+      "games": [
+        {
+            "id" : 1,
+            "name" : "Найди пару",
+            "image" : "assets/images/games_images/memory/memory_findCouple.jpg"
+        },
+        {
+            "id" : 2,
+            "name" : "Найди отличия",
+            "image" : "assets/images/games_images/memory/memory_findDifferences.jpg"
+        },
+        {
+            "id" : 3,
+            "name" : "Вспомни картинки",
+            "image" : "assets/images/games_images/memory/memory_rememberPic.jpg"
+        },
+        {
+            "id" : 4,
+            "name" : "Подбери фрагмент",
+            "image" : "assets/images/games_images/memory/memory_matchAFragment.jpg"
+        },
+        {
+            "id" : 5,
+            "name" : "Собери картинку",
+            "image" : "assets/images/games_images/memory/memory_buildPic.jpg"
+        }
+      ]
     }
   ]
 }

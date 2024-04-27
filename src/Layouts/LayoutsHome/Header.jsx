@@ -5,7 +5,7 @@ import Logo  from '../../assets/images/logo/5378462__0.jpg'
 
 const Header = () => {
   return (
-    <div>
+    <div style={{marginBottom : 50}}>
       <header className="App-header">
         <div className='header-container'>
           <div className='Logo'>

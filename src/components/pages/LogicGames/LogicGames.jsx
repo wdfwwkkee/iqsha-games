@@ -4,11 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 import Game from '../../../Layouts/Games/Game';
 import { Link } from 'react-router-dom';
 import style from './logic_games.module.scss'
+import Header from 'Layouts/LayoutsHome/Header';
 
 const LogicGames = () => {
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["gameData"],
+    queryKey: ["logicGame"],
     queryFn: () => {
       return iqshaService.getGameById(4);
     },
@@ -27,6 +28,7 @@ const LogicGames = () => {
 
   return (
     <div>
+      <Header />
       <div className="inner-wrapper">
         <div className={style.list}>
           {data.games.map((item, index) => <Game key={item.id} item={item} />)}

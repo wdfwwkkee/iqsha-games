@@ -24,12 +24,12 @@
         {
             "id" : 4,
             "name" : "Комната",
-            "image" : "assets/images/games_images/chess/chess_Room.jpg"
+            "image" : "assets/images/games_images/chess/chess_Room.png"
         },
         {
             "id" : 5,
             "name" : "Кто так ходит",
-            "image" : "assets/images/games_images/chess/chess_WhosTurn.jpg"
+            "image" : "assets/images/games_images/chess/chess_WhosTurn.png"
         },
         {
             "id" : 6,

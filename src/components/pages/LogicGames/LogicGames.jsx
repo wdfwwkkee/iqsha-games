@@ -1,7 +1,7 @@
 import React from 'react'
 import { iqshaService } from 'service/iqsha.service'
 import { useQuery } from "@tanstack/react-query";
-import Game from 'layouts/Games/Game';
+import Game from '../../../Layouts/Games/Game';
 import { Link } from 'react-router-dom';
 import style from './logic_games.module.scss'
 

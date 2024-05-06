@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 const Game = ({ item }) => {
 
     const gameImage = item.image;
+    console.log(item)
 
     return (
-        <Link className={style.item}>
+        <Link className={style.item} to={`${item.tag}`}>
             <div>
                 <img src={`${process.env.PUBLIC_URL}/${gameImage}`} alt="" />
                 <div className={style.gameName}>{item.name}</div>

@@ -1,0 +1,40 @@
+
+ul {
+    list-style: none;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+
+
+    .item {
+        padding: 10px 20px;
+        border: 1px solid black;
+        border-radius: 8px;
+        cursor: grab;
+    }
+
+
+}
+
+main {
+    .title {
+        margin-bottom: 60px;
+    }
+    text-align: center;
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        background: rgb(49, 49, 138);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

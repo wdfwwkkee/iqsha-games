@@ -27,8 +27,8 @@ function App() {
 
           <Route element={<Contacts />} path="/contacts" />
 
-
           <Route path="/*" element={<div>NotFound</div>} />
+          
         </Routes>
       </BrowserRouter>
     </div>

@@ -10,6 +10,7 @@ import MathGames from 'components/pages/MathGames/MathGames';
 import ReadingGames from 'components/pages/ReadingGames/ReadingGames';
 import MemoryGames from 'components/pages/MemoryGames/MemoryGames';
 import LogicGames from 'components/pages/LogicGames/LogicGames';
+import NumberSeries from 'components/pages/MathGames/number_series/NumberSeries';
 
 function App() {
   return (
@@ -25,10 +26,14 @@ function App() {
           <Route element={<MemoryGames />} path="/games/memory-games" />
           <Route element={<LogicGames />} path="/games/logic-games" />
 
+
+          <Route element={<NumberSeries />} path="/games/math-games/number_series" />
+
+
           <Route element={<Contacts />} path="/contacts" />
 
-
           <Route path="/*" element={<div>NotFound</div>} />
+          
         </Routes>
       </BrowserRouter>
     </div>

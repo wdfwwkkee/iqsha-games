@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from '../../../Layouts/LayoutsHome/Header.jsx'
-import About from '../../../Layouts/LayoutsHome/About.jsx'
-import Startgame from '../../../Layouts/LayoutsHome/Startgame.jsx'
-import TopScoreHP from '../../../Layouts/LayoutsHome/TopScoreHP.jsx'
+import Header from '../../../layouts/LayoutsHome/Header.jsx'
+import About from '../../../layouts/LayoutsHome/About.jsx'
+import Startgame from '../../../layouts/LayoutsHome/Startgame.jsx'
+import TopScoreHP from '../../../layouts/LayoutsHome/TopScoreHP.jsx'
 
 
 const Home = () => {

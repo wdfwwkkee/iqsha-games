@@ -3,22 +3,7 @@ ul {
     list-style: none;
 }
 
-.list {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 50px;
 
-
-    .item {
-        padding: 10px 20px;
-        border: 1px solid black;
-        border-radius: 8px;
-        cursor: grab;
-    }
-
-
-}
 
 main {
     .title {

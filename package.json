@@ -5,6 +5,10 @@
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
     "@dnd-kit/utilities": "^3.2.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/lab": "^5.0.0-alpha.170",
+    "@mui/material": "^5.15.17",
     "@reduxjs/toolkit": "^2.2.3",
     "@tanstack/react-query": "^5.32.0",
     "@testing-library/jest-dom": "^5.17.0",

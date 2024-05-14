@@ -1,58 +1,88 @@
 import Header from "Layouts/LayoutsHome/Header";
 import React, { useState } from "react";
-import { AnimatePresence, Reorder } from "framer-motion";
 import style from "./number_series.module.scss";
 
-import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 
+import { ToastContainer, toast } from "react-toastify";
+
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import GenerateLvl from "./GeratorLvls/GenerateLvl";
+import { Link } from "react-router-dom";
 
 const NumberSeries = () => {
+
+  const [value, setValue] = useState('1')
+  const [isCompleted, setIsCompleted] = useState(false)
+  const [isOver, setIsOver] = useState(false)
+
   const [array, setArray] = useState(
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sort(() => Math.random() - 0.5)
   );
+  const handleChange = (event, newValue) => {
+    
+    if (isCompleted) {
+      setValue(newValue);
+      setArray([...array].sort(() => Math.random() - 0.5))
+    }
+  };
+
+  console.log(value)
+  console.log(isCompleted)
 
   function checkAnswer(array) {
     const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
     if (array.toString() === answer.toString()) {
       toast("Молодец!");
+      if (Number(value) === 3 && isCompleted) {
+        setIsOver(true)
+      }
+      setIsCompleted(true)
+      if (Number(value) < 3) {
+        setValue(prev => (Number(prev) + 1).toString())
+        setArray([...array].sort(() => Math.random() - 0.5))
+        setIsCompleted(false)
+      }
+
     } else {
       toast("Ответ неправильный");
-    }
+    } 
   }
 
-  console.log(array);
+
+
 
   return (
     <div>
       <Header />
       <main>
         <div className={style.title}>Расставь в правильном порядке</div>
-        <Reorder.Group
-          className={style.list}
-          axis="x"
-          values={array}
-          onReorder={setArray}
-        >
-          <AnimatePresence>
-            {array.map((item) => (
-              <Reorder.Item
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                key={item}
-                value={item}
-              >
-                <div className={style.item}>{item}</div>
-              </Reorder.Item>
-            ))}
-          </AnimatePresence>
-        </Reorder.Group>
-        <button onClick={() => checkAnswer(array)}>Проверить</button>
-      </main>
+        <div className="tabber">
+          <Box sx={{ width: '100%', typography: 'body1' }}>
+            <TabContext value={value}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <TabList onChange={handleChange} centered aria-label="lab API tabs example">
+                  <Tab label="Уровень 1 " value="1" />
+                  <Tab label="Уровень 2" value="2" />
+                  <Tab label="Уровень 3" value="3" />
+                </TabList>
+              </Box>
+              <TabPanel value="1"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
+              <TabPanel value="2"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
+              <TabPanel value="3"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
+            </TabContext>
+          </Box>
 
-      <ToastContainer />
+          <button onClick={() => checkAnswer(array)}>{isOver ? <Link to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
+          <ToastContainer style={{ fontSize: 17 }} />
+
+        </div>
+
+
+      </main>
     </div>
   );
 };

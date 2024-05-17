@@ -1,7 +1,7 @@
 import React from 'react'
 
 import GamesTitleList from './GamesTitleList/GamesTitleList'
-import Header from 'layouts/LayoutsHome/Header'
+import Header from 'Layouts/LayoutsHome/Header'
 
 const Games = () => {
     return (

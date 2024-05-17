@@ -1,5 +1,5 @@
 import Header from "Layouts/LayoutsHome/Header";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./number_series.module.scss";
 
 
@@ -23,23 +23,29 @@ const NumberSeries = () => {
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sort(() => Math.random() - 0.5)
   );
   const handleChange = (event, newValue) => {
-    
+
     if (isCompleted) {
       setValue(newValue);
       setArray([...array].sort(() => Math.random() - 0.5))
     }
+    else {
+      toast("Сначала реши пример!");
+    }
   };
 
-  console.log(value)
-  console.log(isCompleted)
+
+  useEffect(() => {
+    if (Number(value) === 3 && isCompleted) {
+
+      setIsOver(true)
+    }
+  }, [isCompleted, value])
+
 
   function checkAnswer(array) {
     const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     if (array.toString() === answer.toString()) {
       toast("Молодец!");
-      if (Number(value) === 3 && isCompleted) {
-        setIsOver(true)
-      }
       setIsCompleted(true)
       if (Number(value) < 3) {
         setValue(prev => (Number(prev) + 1).toString())
@@ -49,7 +55,7 @@ const NumberSeries = () => {
 
     } else {
       toast("Ответ неправильный");
-    } 
+    }
   }
 
 
@@ -75,13 +81,9 @@ const NumberSeries = () => {
               <TabPanel value="3"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
             </TabContext>
           </Box>
-
-          <button onClick={() => checkAnswer(array)}>{isOver ? <Link to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
+          <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
           <ToastContainer style={{ fontSize: 17 }} />
-
         </div>
-
-
       </main>
     </div>
   );

@@ -12,6 +12,8 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import GenerateLvl from "./GeratorLvls/GenerateLvl";
 import { Link } from "react-router-dom";
+import hpbar from "Layouts/hpbar/hpbar";
+import { hploss } from "Layouts/hpbar/hpbar";
 
 const NumberSeries = () => {
 
@@ -42,6 +44,8 @@ const NumberSeries = () => {
   }, [isCompleted, value])
 
 
+  const [incorrectAnswer, setincorrectAnswer] = useState(false);
+
   function checkAnswer(array) {
     const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     if (array.toString() === answer.toString()) {
@@ -56,7 +60,7 @@ const NumberSeries = () => {
     } else {
       toast("Ответ неправильный");
     }
-  }
+
 
 
 

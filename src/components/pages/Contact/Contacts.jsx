@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../../Layouts/LayoutsHome/Header'
+import Header from 'Layouts/LayoutsHome/Header'
 
 const Contacts = () => {
   return (

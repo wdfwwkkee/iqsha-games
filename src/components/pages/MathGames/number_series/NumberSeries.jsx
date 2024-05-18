@@ -12,7 +12,6 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import GenerateLvl from "./GeratorLvls/GenerateLvl";
 import { Link } from "react-router-dom";
-import HealthBar from "Layouts/hpbar/HealthBar";
 
 const NumberSeries = () => {
 
@@ -69,7 +68,6 @@ const NumberSeries = () => {
           <main>
             <div className={style.title}>Расставь в правильном порядке</div>
             <div className="tabber">
-              <HealthBar />
               <Box sx={{ width: '100%', typography: 'body1' }}>
                 <TabContext value={value}>
                   <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

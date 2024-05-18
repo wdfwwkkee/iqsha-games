@@ -13,7 +13,6 @@ const GenerateLvl = ({ array, setArray }) => {
 
     return (
         <div>
-
             <Reorder.Group
                 className={style.list}
                 axis="x"

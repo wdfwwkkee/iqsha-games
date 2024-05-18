@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from './tasks_games.module.scss'
+import style from './moreless.module.scss'
 import Header from 'Layouts/LayoutsHome/Header'
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -9,19 +9,17 @@ import TabPanel from '@mui/lab/TabPanel';
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-const TaskGames = () => {
+const MoreLess = () => {
     const [value, setValue] = useState('1')
     const [isCompleted, setIsCompleted] = useState(false)
     const [isOver, setIsOver] = useState(false)
 
     const [array, setArray] = useState([1, 2, 3, 4, 5]);
     const [userAnswer, setUserAnswer] = useState("");
-    const [actions, setActions] = useState(["+", '-',]);
-    const [firstSym, setFirstSym] = useState(array[Math.floor(Math.random() * array.length)]);
-    const [secondSym, setSecondSym] = useState(firstSym === array[Math.floor(Math.random() * array.length)] ? array[Math.floor(Math.random() * array.length)] : array[Math.floor(Math.random() * array.length)])
-    const [action, setAction] = useState(actions[Math.floor(Math.random() * actions.length)])
-    const result = eval(firstSym + action + secondSym)
-
+    const [firstSym, setFirstSym] = useState(array[Math.floor(Math.random() * array.length)])
+    const [secondSym, setSecondSym] = useState(array[Math.floor(Math.random() * array.length)])
+    const result = eval(firstSym + userAnswer + secondSym)
+    console.log(result)
     const handleChange = (event, newValue) => {
 
         if (isCompleted) {
@@ -34,7 +32,7 @@ const TaskGames = () => {
     };
 
     function checkAnswer() {
-        if (userAnswer.toString() === action.toString()) {
+        if (result) {
             toast("Молодец!");
             setIsCompleted(true)
             if (Number(value) < 3) {
@@ -43,7 +41,6 @@ const TaskGames = () => {
                 setIsCompleted(false)
                 setFirstSym(array[Math.floor(Math.random() * array.length)])
                 setSecondSym(array[Math.floor(Math.random() * array.length)])
-                setAction(actions[Math.floor(Math.random() * actions.length)])
                 setUserAnswer("")
             }
 
@@ -66,14 +63,14 @@ const TaskGames = () => {
                 <main>
                     Молодец ты прошел все уровни!
                     <div>
-                        <Link style={{textDecoration : "none", color : "blue"}} to={"/games"}>Перейти к другим играм</Link>
+                        <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
                     </div>
                 </main>
             )
                 : (
                     <main>
                         <div className={style.title}>
-                            Реши пример
+                            Какое число больше
                         </div>
                         <div className={style.task}>
                             <div className="tabber">
@@ -89,40 +86,37 @@ const TaskGames = () => {
                                         <TabPanel value="1">
                                             <div className={style.taskSym}>
                                                 <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer}</div>
+                                                <div className={style.userAnswer}>{userAnswer === "===" ? "=" : userAnswer}</div>
                                                 <div>{secondSym}</div>
-                                                <span>=</span>
-                                                <div>{result}</div>
                                             </div>
                                             <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer("+")}>+</button>
-                                                <button onClick={() => setUserAnswer("-")}>-</button>
+                                                <button onClick={() => setUserAnswer(">")}>&gt;</button>
+                                                <button onClick={() => setUserAnswer("===")}>=</button>
+                                                <button onClick={() => setUserAnswer("<")}>&lt;</button>
                                             </div>
                                         </TabPanel>
                                         <TabPanel value="2">
                                             <div className={style.taskSym}>
                                                 <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer}</div>
+                                                <div className={style.userAnswer}>{userAnswer === "===" ? "=" : userAnswer}</div>
                                                 <div>{secondSym}</div>
-                                                <span>=</span>
-                                                <div>{result}</div>
                                             </div>
                                             <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer("+")}>+</button>
-                                                <button onClick={() => setUserAnswer("-")}>-</button>
+                                                <button onClick={() => setUserAnswer(">")}>&gt;</button>
+                                                <button onClick={() => setUserAnswer("===")}>=</button>
+                                                <button onClick={() => setUserAnswer("<")}>&lt;</button>
                                             </div>
                                         </TabPanel>
                                         <TabPanel value="3">
                                             <div className={style.taskSym}>
                                                 <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer}</div>
+                                                <div className={style.userAnswer}>{userAnswer === "===" ? "=" : userAnswer}</div>
                                                 <div>{secondSym}</div>
-                                                <span>=</span>
-                                                <div>{result}</div>
                                             </div>
                                             <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer("+")}>+</button>
-                                                <button onClick={() => setUserAnswer("-")}>-</button>
+                                                <button onClick={() => setUserAnswer(">")}>&gt;</button>
+                                                <button onClick={() => setUserAnswer("===")}>=</button>
+                                                <button onClick={() => setUserAnswer("<")}>&lt;</button>
                                             </div>
                                         </TabPanel>
                                     </TabContext>
@@ -133,11 +127,9 @@ const TaskGames = () => {
                         </div>
                     </main>
                 )
-
             }
-
         </div>
     )
 }
 
-export default TaskGames
+export default MoreLess

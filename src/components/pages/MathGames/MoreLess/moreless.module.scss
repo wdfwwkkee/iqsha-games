@@ -1,0 +1,57 @@
+.title {
+    margin-bottom: 50px;
+  }
+  
+  .task {
+    font-size: 70px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .symbol {
+    width: 200px;
+  }
+  
+  .answers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  
+  .taskSym {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 50px;
+    }
+  }
+  
+  .actionBtns {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: center;
+    button {
+      border-radius: 10px;
+      font-size: 20px;
+      padding: 10px 30px;
+    }
+  }
+  
+  .userAnswer {
+    font-size: 25px;
+    border: 1px dashed red;
+  }

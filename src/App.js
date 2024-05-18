@@ -12,6 +12,7 @@ import MemoryGames from 'components/pages/MemoryGames/MemoryGames';
 import LogicGames from 'components/pages/LogicGames/LogicGames';
 import NumberSeries from 'components/pages/MathGames/number_series/NumberSeries';
 import TaskGames from 'components/pages/MathGames/tasks_games/TaskGames';
+import MoreLess from 'components/pages/MathGames/MoreLess/MoreLess';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route element={<LogicGames />} path="/games/logic-games" />
 
 
+          <Route element={<MoreLess />} path="/games/math-games/more_lessor" />
           <Route element={<NumberSeries />} path="/games/math-games/number_series" />
           <Route element={<TaskGames />} path="/games/math-games/tasks" />
 

@@ -6,7 +6,8 @@ import style from './dragitem.module.scss'
 const DragItem = (props) => {
     const { attributes, listeners, setNodeRef: setFirstRef, transform } = useDraggable({
         id: props.id,
-        data : {
+        data: {
+            name : props.name,
             supports: ['type1', 'type2'],
         }
     });
@@ -17,10 +18,8 @@ const DragItem = (props) => {
 
 
     return (
-        <div>
-            <button ref={setFirstRef} className={style.item} style={DndStyle} {...attributes} {...listeners}>
-                {props.children}
-            </button>
+        <div ref={setFirstRef} className={style.item} style={DndStyle} {...attributes} {...listeners}>
+            {props.children}
         </div>
     );
 }

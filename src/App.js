@@ -13,6 +13,7 @@ import LogicGames from 'components/pages/LogicGames/LogicGames';
 import NumberSeries from 'components/pages/MathGames/number_series/NumberSeries';
 import TaskGames from 'components/pages/MathGames/tasks_games/TaskGames';
 import MoreLess from 'components/pages/MathGames/MoreLess/MoreLess';
+import NumberMathGame from 'components/pages/MathGames/number_game/NumberMathGame';
 
 function App() {
   return (
@@ -20,20 +21,23 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact element={<Home />} path="/" />
-          <Route element={<Games />} path="/games" />
 
+          {/* GamePages */}
+          <Route element={<Games />} path="/games" />
           <Route element={<ChessGames />} path="/games/chess-games" />
           <Route element={<MathGames />} path="/games/math-games" />
           <Route element={<ReadingGames />} path="/games/reading-games" />
           <Route element={<MemoryGames />} path="/games/memory-games" />
           <Route element={<LogicGames />} path="/games/logic-games" />
 
-
+          {/* MathGames */}
           <Route element={<MoreLess />} path="/games/math-games/more_lessor" />
           <Route element={<NumberSeries />} path="/games/math-games/number_series" />
           <Route element={<TaskGames />} path="/games/math-games/tasks" />
+          <Route element={<NumberMathGame />} path="/games/math-games/number" />
 
 
+          {/* Other */}
           <Route element={<Contacts />} path="/contacts" />
 
           <Route path="/*" element={<div>NotFound</div>} />

@@ -1,0 +1,24 @@
+.imagesList {
+  display: flex;
+  margin-bottom: 100px;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+  img {
+    max-width: 300px;
+    max-height: 200px;
+  }
+}
+
+.answersList {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    justify-content: center;
+}
+
+.answer {
+  max-width: 300px;
+  cursor: grab;
+  max-height: 200px;
+}

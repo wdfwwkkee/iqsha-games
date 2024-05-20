@@ -13,14 +13,9 @@ import LogicGames from 'components/pages/LogicGames/LogicGames';
 import NumberSeries from 'components/pages/MathGames/number_series/NumberSeries';
 import TaskGames from 'components/pages/MathGames/tasks_games/TaskGames';
 import MoreLess from 'components/pages/MathGames/MoreLess/MoreLess';
-<<<<<<< HEAD
-import FindCouple from 'components/pages/MemoryGames/Find_a_couple/FindCouple';
-import Find_differences from 'components/pages/MemoryGames/Find_differences/Find_differences';
-=======
 import NumberMathGame from 'components/pages/MathGames/number_game/NumberMathGame';
 
 import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
->>>>>>> 90c6d776412804f343d30141796cac3a745c4041
 
 function App() {
   return (
@@ -41,17 +36,14 @@ function App() {
           <Route element={<MoreLess />} path="/games/math-games/more_lessor" />
           <Route element={<NumberSeries />} path="/games/math-games/number_series" />
           <Route element={<TaskGames />} path="/games/math-games/tasks" />
-<<<<<<< HEAD
           <Route element={<FindCouple />} path="/games/memory-games/find_couple" />
           <Route element={<Find_differences />} path="/games/memory-games/find_differences" />
 
     
-=======
           <Route element={<NumberMathGame />} path="/games/math-games/number" />
 
           <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
           {/* Other */}
->>>>>>> 90c6d776412804f343d30141796cac3a745c4041
           <Route element={<Contacts />} path="/contacts" />
 
           <Route path="/*" element={<div>NotFound</div>} />

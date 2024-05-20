@@ -17,6 +17,8 @@ import NumberMathGame from 'components/pages/MathGames/number_game/NumberMathGam
 import MathMoneyGame from 'components/pages/MathGames/money_game/MathMoneyGame';
 
 import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
+import FindDifferences from 'components/pages/MemoryGames/Find_differences/Find_differences';
+import FindCouple from 'components/pages/MemoryGames/Find_a_couple/FindCouple';
 
 function App() {
   return (
@@ -38,7 +40,7 @@ function App() {
           <Route element={<NumberSeries />} path="/games/math-games/number_series" />
           <Route element={<TaskGames />} path="/games/math-games/tasks" />
           <Route element={<FindCouple />} path="/games/memory-games/find_couple" />
-          <Route element={<Find_differences />} path="/games/memory-games/find_differences" />
+          <Route element={<FindDifferences />} path="/games/memory-games/find_differences" />
 
     
           <Route element={<NumberMathGame />} path="/games/math-games/number" />

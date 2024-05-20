@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 
-const Find_differences = () => {
+const FindDifferences = () => {
   const [value, setValue] = useState('1')
     const [isCompleted, setIsCompleted] = useState(false)
     const [isOver, setIsOver] = useState(false)
@@ -67,4 +67,4 @@ const Find_differences = () => {
   )
 }
 
-export default Find_differences
+export default FindDifferences

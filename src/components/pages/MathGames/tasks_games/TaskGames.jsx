@@ -11,7 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Confetti from "components/UI/Confetti";
 
 const TaskGames = () => {
-    
+
     const [value, setValue] = useState('1')
     const [isCompleted, setIsCompleted] = useState(false)
     const [isOver, setIsOver] = useState(false)
@@ -69,8 +69,8 @@ const TaskGames = () => {
                     <div>
                         <div>Молодец ты прошел все уровни!</div>
                         <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
+                        <Confetti />
                     </div>
-                    <Confetti />
                 )
                     : (
                         <div>

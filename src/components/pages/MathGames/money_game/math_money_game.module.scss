@@ -1,19 +1,65 @@
 .bag {
+    user-select: none;
     position: relative;
     width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
-    height: 600px;
+    height: 500px;
     img {
         top: 10%;
         left: 30%;
         position: absolute;
         max-width: 300px;
     }
+}
 
+.answersList {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 30px;
+    button {
+        font-size: 50px;
+        padding: 0;
+        margin: 0;
+        grid-column: span 6;
+    }
 }
 
 .coinsList {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    justify-content: center;
     img {
         max-width: 100px;
+    }
+    .coin {
+        grid-column: span 6;
+        width: 100px;
+        height: 110px;
+        background: url("/assets/images/math_games/money_game/math_game_money_coin.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: relative;
+        .coinNumber {
+            color: black;
+            font-size: 35px;
+            position: absolute;
+            top: 30%;
+            left: 41%;
+            user-select: none;
+
+        }
+
+        .coinImg {
+            position: absolute;
+            top: 0;
+        }
     }
 }

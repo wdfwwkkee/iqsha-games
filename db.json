@@ -135,7 +135,7 @@
         {
             "id" : 1,
             "name" : "Что лишнее",
-            "tag" : "what's_superfluous",
+            "tag" : "what_excess",
             "image" : "assets/images/games_images/logic/logic_whatSuperfluous.jpg"
         },
         {

@@ -15,6 +15,8 @@ import TaskGames from 'components/pages/MathGames/tasks_games/TaskGames';
 import MoreLess from 'components/pages/MathGames/MoreLess/MoreLess';
 import NumberMathGame from 'components/pages/MathGames/number_game/NumberMathGame';
 
+import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
+
 function App() {
   return (
     <div className="App">
@@ -34,9 +36,13 @@ function App() {
           <Route element={<MoreLess />} path="/games/math-games/more_lessor" />
           <Route element={<NumberSeries />} path="/games/math-games/number_series" />
           <Route element={<TaskGames />} path="/games/math-games/tasks" />
+          <Route element={<FindCouple />} path="/games/memory-games/find_couple" />
+          <Route element={<Find_differences />} path="/games/memory-games/find_differences" />
+
+    
           <Route element={<NumberMathGame />} path="/games/math-games/number" />
 
-
+          <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
           {/* Other */}
           <Route element={<Contacts />} path="/contacts" />
 

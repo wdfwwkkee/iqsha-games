@@ -9,7 +9,7 @@ const NumberLevelThird = ({ style, currentItem, dragItems }) => {
             <div className={style.imagesList}>
                 <img src={Image1} alt="" />
                 <DroppableHole id="droppable">
-                    {!currentItem ? "Drop here" : <div>{currentItem}</div>}
+                    {!currentItem ? "Перетащи сюда" : <div>{currentItem}</div>}
                 </DroppableHole>
                 <img src={Image2} alt="" />
             </div>

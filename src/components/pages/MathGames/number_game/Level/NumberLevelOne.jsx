@@ -11,7 +11,7 @@ const NumberLevelOne = ({ style, currentItem, dragItems }) => {
       <div className={style.imagesList}>
         <img src={Image1} alt="" />
         <DroppableHole id="droppable">
-          {!currentItem ? "Перетащи сюда объект" : <div>{currentItem}</div>}
+          {!currentItem ? "Перетащи сюда" : <div>{currentItem}</div>}
         </DroppableHole>
         <img src={Image2} alt="" />
       </div>

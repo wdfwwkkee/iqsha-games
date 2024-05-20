@@ -14,6 +14,7 @@ const DragItem = (props) => {
     const DndStyle = {
         // Outputs `translate3d(x, y, 0)`
         transform: CSS.Translate.toString(transform),
+        cursor : 'grab'
     };
 
 

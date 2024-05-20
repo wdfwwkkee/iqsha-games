@@ -34,6 +34,7 @@ import Image6 from 'assets/images/math_games/number/num_5.png'
 import Image7 from 'assets/images/math_games/number/quan_2.png'
 import Image8 from 'assets/images/math_games/number/numbers_6.png'
 import Image9 from 'assets/images/math_games/number/num_6.png'
+import Confetti from 'components/UI/Confetti';
 
 
 //LevelOne
@@ -95,7 +96,6 @@ const NumberMathGame = () => {
     const answerTwo = 15;
     const answerThird = 'people';
     const [currentAnswer, setCurrentAnswer] = useState('')
-    console.log(isCompleted)
 
     function checkForCompleted() {
         if (Number(value) < 3) {
@@ -169,6 +169,7 @@ const NumberMathGame = () => {
         }
     }, [isCompleted, value])
 
+
     function handleDragEnd(event) {
         const { active, over } = event;
         if (over) {
@@ -192,6 +193,7 @@ const NumberMathGame = () => {
                         <div>
                             <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
                         </div>
+                        <Confetti />
                     </main>
                 )
                     : (

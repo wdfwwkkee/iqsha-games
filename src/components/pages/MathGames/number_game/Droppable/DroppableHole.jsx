@@ -3,17 +3,15 @@ import { useDroppable } from '@dnd-kit/core';
 import style from './droppable.module.scss'
 
 const DroppableHole = (props) => {
-    
-    const { isOver, setNodeRef, active, over } = useDroppable({
+    const { isOver, setNodeRef, active } = useDroppable({
         id: props.id,
         data : {
             type : "type1"
         }
     });
-    console.log(over)
+    
     const DndStyle = {
-        opacity: isOver ? 1 : 0.5,
-        border : active ? 'none' : '1px dashed red'
+        border: active ? "2px solid orange" : 'none',
     };
 
     return (

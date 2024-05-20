@@ -12,6 +12,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import GenerateLvl from "./GeratorLvls/GenerateLvl";
 import { Link } from "react-router-dom";
+import Confetti from "components/UI/Confetti";
 
 const NumberSeries = () => {
 
@@ -62,27 +63,29 @@ const NumberSeries = () => {
             <div>Молодец ты прошел все уровни!</div>
             <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
           </div>
-        )
-          : (
-            <div>
-              <div className={style.title}>Расставь в правильном порядке</div>
-              <div className="tabber">
-                <Box sx={{ width: '100%', typography: 'body1' }}>
-                  <TabContext value={value}>
-                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                      <TabList onChange={handleChange} centered aria-label="lab API tabs example">
-                        <Tab label="Уровень 1 " value="1" />
-                        <Tab label="Уровень 2" value="2" />
-                        <Tab label="Уровень 3" value="3" />
-                      </TabList>
-                    </Box>
-                    <TabPanel value="1"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
-                    <TabPanel value="2"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
-                    <TabPanel value="3"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
-                  </TabContext>
-                </Box>
-                <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
-              </div>
+          <Confetti />
+        </main>
+      )
+        : (
+          <div>
+            <div className={style.title}>Расставь в правильном порядке</div>
+            <div className="tabber">
+              <Box sx={{ width: '100%', typography: 'body1' }}>
+                <TabContext value={value}>
+                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <TabList onChange={handleChange} centered aria-label="lab API tabs example">
+                      <Tab label="Уровень 1 " value="1" />
+                      <Tab label="Уровень 2" value="2" />
+                      <Tab label="Уровень 3" value="3" />
+                    </TabList>
+                  </Box>
+                  <TabPanel value="1"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
+                  <TabPanel value="2"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
+                  <TabPanel value="3"><GenerateLvl array={array} setArray={setArray} /></TabPanel>
+                </TabContext>
+              </Box>
+              <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
+              <ToastContainer style={{ fontSize: 17 }} />
             </div>
           )
         }

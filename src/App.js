@@ -13,6 +13,8 @@ import LogicGames from 'components/pages/LogicGames/LogicGames';
 import NumberSeries from 'components/pages/MathGames/number_series/NumberSeries';
 import TaskGames from 'components/pages/MathGames/tasks_games/TaskGames';
 import MoreLess from 'components/pages/MathGames/MoreLess/MoreLess';
+import FindCouple from 'components/pages/MemoryGames/Find_a_couple/FindCouple';
+import Find_differences from 'components/pages/MemoryGames/Find_differences/Find_differences';
 
 function App() {
   return (
@@ -32,8 +34,10 @@ function App() {
           <Route element={<MoreLess />} path="/games/math-games/more_lessor" />
           <Route element={<NumberSeries />} path="/games/math-games/number_series" />
           <Route element={<TaskGames />} path="/games/math-games/tasks" />
+          <Route element={<FindCouple />} path="/games/memory-games/find_couple" />
+          <Route element={<Find_differences />} path="/games/memory-games/find_differences" />
 
-
+    
           <Route element={<Contacts />} path="/contacts" />
 
           <Route path="/*" element={<div>NotFound</div>} />

@@ -1,0 +1,19 @@
+.bag {
+    position: relative;
+    width: 700px;
+    margin: 0 auto;
+    height: 600px;
+    img {
+        top: 10%;
+        left: 30%;
+        position: absolute;
+        max-width: 300px;
+    }
+
+}
+
+.coinsList {
+    img {
+        max-width: 100px;
+    }
+}

@@ -11,7 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Confetti from "components/UI/Confetti";
 
 const TaskGames = () => {
-    
+
     const [value, setValue] = useState('1')
     const [isCompleted, setIsCompleted] = useState(false)
     const [isOver, setIsOver] = useState(false)
@@ -64,81 +64,79 @@ const TaskGames = () => {
     return (
         <div>
             <Header />
-            {isOver ? (
-                <main>
-                    Молодец ты прошел все уровни!
+            <main>
+                {isOver ? (
                     <div>
-                        <Link style={{textDecoration : "none", color : "blue"}} to={"/games"}>Перейти к другим играм</Link>
+                        <div>Молодец ты прошел все уровни!</div>
+                        <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
+                        <Confetti />
                     </div>
-                    <Confetti />
-                </main>
-            )
-                : (
-                    <main>
-                        <div className={style.title}>
-                            Реши пример
-                        </div>
-                        <div className={style.task}>
-                            <div className="tabber">
-                                <Box sx={{ width: '100%', typography: 'body1' }}>
-                                    <TabContext value={value}>
-                                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                            <TabList onChange={handleChange} centered aria-label="lab API tabs example">
-                                                <Tab label="Уровень 1 " value="1" />
-                                                <Tab label="Уровень 2" value="2" />
-                                                <Tab label="Уровень 3" value="3" />
-                                            </TabList>
-                                        </Box>
-                                        <TabPanel value="1">
-                                            <div className={style.taskSym}>
-                                                <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer}</div>
-                                                <div>{secondSym}</div>
-                                                <span>=</span>
-                                                <div>{result}</div>
-                                            </div>
-                                            <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer("+")}>+</button>
-                                                <button onClick={() => setUserAnswer("-")}>-</button>
-                                            </div>
-                                        </TabPanel>
-                                        <TabPanel value="2">
-                                            <div className={style.taskSym}>
-                                                <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer}</div>
-                                                <div>{secondSym}</div>
-                                                <span>=</span>
-                                                <div>{result}</div>
-                                            </div>
-                                            <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer("+")}>+</button>
-                                                <button onClick={() => setUserAnswer("-")}>-</button>
-                                            </div>
-                                        </TabPanel>
-                                        <TabPanel value="3">
-                                            <div className={style.taskSym}>
-                                                <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer}</div>
-                                                <div>{secondSym}</div>
-                                                <span>=</span>
-                                                <div>{result}</div>
-                                            </div>
-                                            <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer("+")}>+</button>
-                                                <button onClick={() => setUserAnswer("-")}>-</button>
-                                            </div>
-                                        </TabPanel>
-                                    </TabContext>
-                                </Box>
-                                <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
-                                <ToastContainer style={{ fontSize: 17 }} />
+                )
+                    : (
+                        <div>
+                            <div className={style.title}>
+                                Реши пример
+                            </div>
+                            <div className={style.task}>
+                                <div className="tabber">
+                                    <Box sx={{ width: '100%', typography: 'body1' }}>
+                                        <TabContext value={value}>
+                                            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                                <TabList onChange={handleChange} centered aria-label="lab API tabs example">
+                                                    <Tab label="Уровень 1 " value="1" />
+                                                    <Tab label="Уровень 2" value="2" />
+                                                    <Tab label="Уровень 3" value="3" />
+                                                </TabList>
+                                            </Box>
+                                            <TabPanel value="1">
+                                                <div className={style.taskSym}>
+                                                    <div>{firstSym}</div>
+                                                    <div className={style.userAnswer}>{userAnswer}</div>
+                                                    <div>{secondSym}</div>
+                                                    <span>=</span>
+                                                    <div>{result}</div>
+                                                </div>
+                                                <div className={style.actionBtns}>
+                                                    <button onClick={() => setUserAnswer("+")}>+</button>
+                                                    <button onClick={() => setUserAnswer("-")}>-</button>
+                                                </div>
+                                            </TabPanel>
+                                            <TabPanel value="2">
+                                                <div className={style.taskSym}>
+                                                    <div>{firstSym}</div>
+                                                    <div className={style.userAnswer}>{userAnswer}</div>
+                                                    <div>{secondSym}</div>
+                                                    <span>=</span>
+                                                    <div>{result}</div>
+                                                </div>
+                                                <div className={style.actionBtns}>
+                                                    <button onClick={() => setUserAnswer("+")}>+</button>
+                                                    <button onClick={() => setUserAnswer("-")}>-</button>
+                                                </div>
+                                            </TabPanel>
+                                            <TabPanel value="3">
+                                                <div className={style.taskSym}>
+                                                    <div>{firstSym}</div>
+                                                    <div className={style.userAnswer}>{userAnswer}</div>
+                                                    <div>{secondSym}</div>
+                                                    <span>=</span>
+                                                    <div>{result}</div>
+                                                </div>
+                                                <div className={style.actionBtns}>
+                                                    <button onClick={() => setUserAnswer("+")}>+</button>
+                                                    <button onClick={() => setUserAnswer("-")}>-</button>
+                                                </div>
+                                            </TabPanel>
+                                        </TabContext>
+                                    </Box>
+                                    <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
+                                    <ToastContainer style={{ fontSize: 17 }} />
+                                </div>
                             </div>
                         </div>
-                    </main>
-                )
-
-            }
-
+                    )
+                }
+            </main>
         </div>
     )
 }

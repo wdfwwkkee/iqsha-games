@@ -9,6 +9,7 @@ const DroppableHole = (props) => {
             type : "type1"
         }
     });
+    
     const DndStyle = {
         border: active ? "2px solid orange" : 'none',
     };

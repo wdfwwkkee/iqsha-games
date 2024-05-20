@@ -114,12 +114,7 @@ const NumberMathGame = () => {
             toast("Сначала реши пример!");
         }
     };
-    useEffect(() => {
-        if (Number(value) === 3 && isCompleted) {
 
-            setIsOver(true)
-        }
-    }, [isCompleted, value])
 
 
     function checkAnswer() {
@@ -160,11 +155,19 @@ const NumberMathGame = () => {
                     toast("Ответ неправильный");
                 }
                 break;
-
+            default:
+                break;
         }
 
     }
 
+    useEffect(() => {
+        if (Number(value) === 3 && isCompleted) {
+            toast("Молодец все уровни пройдены")
+            setIsOver(true)
+            console.log(":asd")
+        }
+    }, [isCompleted, value])
 
 
     function handleDragEnd(event) {
@@ -220,12 +223,12 @@ const NumberMathGame = () => {
                                     </Box>
                                 </DndContext>
                                 <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
-                                <ToastContainer style={{ fontSize: 17 }} />
                             </div>
                         </main >
                     )
                 }
             </main>
+            <ToastContainer style={{ fontSize: 17 }} />
         </div>
     )
 }

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import style from './moreless.module.scss'
+import React, { useEffect, useState } from 'react'
 import Header from 'Layouts/LayoutsHome/Header'
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -8,9 +7,14 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import Confetti from "components/UI/Confetti";
+import style from './math_money_game.module.scss'
 
-const MoreLess = () => {
+import BagImage from 'assets/images/math_games/money_game/math_game_money_bag.png'
+import Coin from 'assets/images/math_games/money_game/math_game_money_coin.png'
+
+
+
+const MathMoneyGame = () => {
     const [value, setValue] = useState('1')
     const [isCompleted, setIsCompleted] = useState(false)
     const [isOver, setIsOver] = useState(false)
@@ -36,12 +40,7 @@ const MoreLess = () => {
             toast("Молодец!");
             setIsCompleted(true)
             if (Number(value) < 3) {
-                setValue(prev => (Number(prev) + 1).toString())
-                setArray([...array].sort(() => Math.random() - 0.5))
-                setIsCompleted(false)
-                setFirstSym(array[Math.floor(Math.random() * array.length)])
-                setSecondSym(array[Math.floor(Math.random() * array.length)])
-                setUserAnswer("")
+
             }
 
         } else {
@@ -55,7 +54,6 @@ const MoreLess = () => {
             setIsOver(true)
         }
     }, [isCompleted, value])
-
     return (
         <div>
             <Header />
@@ -65,7 +63,6 @@ const MoreLess = () => {
                     <div>
                         <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
                     </div>
-                    <Confetti />
                 </main>
             )
                 : (
@@ -85,44 +82,29 @@ const MoreLess = () => {
                                             </TabList>
                                         </Box>
                                         <TabPanel value="1">
-                                            <div className={style.taskSym}>
-                                                <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer === "===" ? "=" : userAnswer}</div>
-                                                <div>{secondSym}</div>
-                                            </div>
-                                            <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer(">")}>&gt;</button>
-                                                <button onClick={() => setUserAnswer("===")}>=</button>
-                                                <button onClick={() => setUserAnswer("<")}>&lt;</button>
+                                            <div className={style.bag}>
+                                                <img src={BagImage} alt="" />
+
+                                                <div className={style.coinsList}>
+                                                    <div className={style.coin}>
+
+                                                    </div>
+                                                    <img src={Coin} alt="" />
+                                                    <div className="coin_number">
+                                                        1
+                                                    </div>
+                                                </div>
                                             </div>
                                         </TabPanel>
                                         <TabPanel value="2">
-                                            <div className={style.taskSym}>
-                                                <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer === "===" ? "=" : userAnswer}</div>
-                                                <div>{secondSym}</div>
-                                            </div>
-                                            <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer(">")}>&gt;</button>
-                                                <button onClick={() => setUserAnswer("===")}>=</button>
-                                                <button onClick={() => setUserAnswer("<")}>&lt;</button>
-                                            </div>
+
                                         </TabPanel>
                                         <TabPanel value="3">
-                                            <div className={style.taskSym}>
-                                                <div>{firstSym}</div>
-                                                <div className={style.userAnswer}>{userAnswer === "===" ? "=" : userAnswer}</div>
-                                                <div>{secondSym}</div>
-                                            </div>
-                                            <div className={style.actionBtns}>
-                                                <button onClick={() => setUserAnswer(">")}>&gt;</button>
-                                                <button onClick={() => setUserAnswer("===")}>=</button>
-                                                <button onClick={() => setUserAnswer("<")}>&lt;</button>
-                                            </div>
+
                                         </TabPanel>
                                     </TabContext>
                                 </Box>
-                                <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
+                                <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
                                 <ToastContainer style={{ fontSize: 17 }} />
                             </div>
                         </div>
@@ -133,4 +115,4 @@ const MoreLess = () => {
     )
 }
 
-export default MoreLess
+export default MathMoneyGame

@@ -11,6 +11,7 @@ import style from './math_money_game.module.scss'
 
 import BagImage from 'assets/images/math_games/money_game/math_game_money_bag.png'
 import Coin from 'assets/images/math_games/money_game/math_game_money_coin.png'
+import Confetti from 'components/UI/Confetti';
 
 
 
@@ -18,33 +19,50 @@ const MathMoneyGame = () => {
     const [value, setValue] = useState('1')
     const [isCompleted, setIsCompleted] = useState(false)
     const [isOver, setIsOver] = useState(false)
-
-    const [array, setArray] = useState([1, 2, 3, 4, 5]);
-    const [userAnswer, setUserAnswer] = useState("");
-    const [firstSym, setFirstSym] = useState(array[Math.floor(Math.random() * array.length)])
-    const [secondSym, setSecondSym] = useState(array[Math.floor(Math.random() * array.length)])
-    const result = eval(firstSym + userAnswer + secondSym)
     const handleChange = (event, newValue) => {
-
         if (isCompleted) {
             setValue(newValue);
-            setArray([...array].sort(() => Math.random() - 0.5))
         }
         else {
             toast("Сначала реши пример!");
         }
     };
+    function checkForCompleted() {
+        if (Number(value) < 3) {
+            setValue(prev => (Number(prev) + 1).toString())
+            setIsCompleted(false)
+        }
+    }
 
-    function checkAnswer() {
-        if (result) {
-            toast("Молодец!");
-            setIsCompleted(true)
-            if (Number(value) < 3) {
-
-            }
-
-        } else {
-            toast("Ответ неправильный");
+    function checkAnswer(userResponce) {
+        switch (value) {
+            case "1":
+                if (userResponce === 2) {
+                    toast("Молодец!");
+                    setIsCompleted(true)
+                    checkForCompleted();
+                } else {
+                    toast("Ответ неправильный");
+                }
+                break
+            case "2":
+                if (userResponce === 4) {
+                    toast("Молодец!");
+                    setIsCompleted(true)
+                    checkForCompleted();
+                } else {
+                    toast("Ответ неправильный");
+                }
+                break
+            case "3":
+                if (userResponce === 9) {
+                    toast("Молодец!");
+                    setIsCompleted(true)
+                    checkForCompleted();
+                } else {
+                    toast("Ответ неправильный");
+                }
+                break
         }
     }
 
@@ -63,12 +81,13 @@ const MathMoneyGame = () => {
                     <div>
                         <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
                     </div>
+                    <Confetti />
                 </main>
             )
                 : (
                     <main>
                         <div className={style.title}>
-                            Какое число больше
+                            Сколько монет в мешочке
                         </div>
                         <div className={style.task}>
                             <div className="tabber">
@@ -82,35 +101,98 @@ const MathMoneyGame = () => {
                                             </TabList>
                                         </Box>
                                         <TabPanel value="1">
-                                            <div className={style.bag}>
-                                                <img src={BagImage} alt="" />
-
-                                                <div className={style.coinsList}>
-                                                    <div className={style.coin}>
-
+                                            <div>
+                                                <div className={style.bag}>
+                                                    <img src={BagImage} alt="" />
+                                                    <div className={style.coinsList}>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                1
+                                                            </div>
+                                                        </div>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                1
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <img src={Coin} alt="" />
-                                                    <div className="coin_number">
-                                                        1
-                                                    </div>
+                                                </div>
+                                                <div className={style.answersList}>
+                                                    <button onClick={() => checkAnswer(1)}>1</button>
+                                                    <button onClick={() => checkAnswer(3)}>3</button>
+                                                    <button onClick={() => checkAnswer(2)}>2</button>
+                                                    <button onClick={() => checkAnswer(5)}>5</button>
                                                 </div>
                                             </div>
                                         </TabPanel>
                                         <TabPanel value="2">
-
+                                            <div>
+                                                <div className={style.bag}>
+                                                    <img src={BagImage} alt="" />
+                                                    <div className={style.coinsList}>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                2
+                                                            </div>
+                                                        </div>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                2
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className={style.answersList}>
+                                                    <button onClick={() => checkAnswer(3)}>3</button>
+                                                    <button onClick={() => checkAnswer(4)}>4</button>
+                                                    <button onClick={() => checkAnswer(1)}>1</button>
+                                                    <button onClick={() => checkAnswer(10)}>10</button>
+                                                </div>
+                                            </div>
                                         </TabPanel>
                                         <TabPanel value="3">
-
+                                            <div>
+                                                <div className={style.bag}>
+                                                    <img src={BagImage} alt="" />
+                                                    <div className={style.coinsList}>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                5
+                                                            </div>
+                                                        </div>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                1
+                                                            </div>
+                                                        </div>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                1
+                                                            </div>
+                                                        </div>
+                                                        <div className={style.coin}>
+                                                            <div className={style.coinNumber}>
+                                                                2
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className={style.answersList}>
+                                                    <button onClick={() => checkAnswer(3)}>3</button>
+                                                    <button onClick={() => checkAnswer(4)}>4</button>
+                                                    <button onClick={() => checkAnswer(8)}>8</button>
+                                                    <button onClick={() => checkAnswer(9)}>9</button>
+                                                </div>
+                                            </div>
                                         </TabPanel>
                                     </TabContext>
                                 </Box>
-                                <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
-                                <ToastContainer style={{ fontSize: 17 }} />
                             </div>
                         </div>
                     </main>
                 )
             }
+            <ToastContainer style={{ fontSize: 17 }} />
         </div>
     )
 }

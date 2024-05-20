@@ -8,6 +8,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import Confetti from "components/UI/Confetti";
 
 const TaskGames = () => {
     const [value, setValue] = useState('1')
@@ -68,6 +69,7 @@ const TaskGames = () => {
                     <div>
                         <Link style={{textDecoration : "none", color : "blue"}} to={"/games"}>Перейти к другим играм</Link>
                     </div>
+                    <Confetti />
                 </main>
             )
                 : (

@@ -12,6 +12,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import GenerateLvl from "./GeratorLvls/GenerateLvl";
 import { Link } from "react-router-dom";
+import Confetti from "components/UI/Confetti";
 
 const NumberSeries = () => {
 
@@ -62,6 +63,7 @@ const NumberSeries = () => {
           <div>
             <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
           </div>
+          <Confetti />
         </main>
       )
         : (

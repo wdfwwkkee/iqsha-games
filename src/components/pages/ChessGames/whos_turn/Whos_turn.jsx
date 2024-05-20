@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from 'Layouts/LayoutsHome/Header'
 
-
+import './whos_turn.css'
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -12,36 +12,104 @@ import { ToastContainer, toast } from "react-toastify";
 import Confetti from "components/UI/Confetti";
 //tasks-img
 import img_ladya from "assets/images/chess_games/ladya.jpg"
-import img_horse from "assets/images/chess_games/horse.jpeg"
+import img_horse from "assets/images/chess_games/horse_moves.jpg"
+import img_queen from "assets/images/chess_games/queen_moves.jpg"
 
 
 //answers-img
-import horse_ans from "assets/images/chess_games/horse_ans.webp"
+import horse_ans from "assets/images/chess_games/horse_ans.jpg"
+import bishop_ans from "assets/images/chess_games/bishop_ans.jpg"
+import queen_ans from "assets/images/chess_games/queen_ans.jpg"
+import pawn_ans from "assets/images/chess_games/pawn_ans.jpg"
+import rook_ans from "assets/images/chess_games/rook_ans.jpg"
+import king_ans from "assets/images/chess_games/king_ans.jpg"
 
 
 
 const Whos_turn = () => {
   const [value, setValue] = useState('1')
 
-  const [array, setArray] = useState([img_ladya, img_horse]);
+  const [array, setArray] = useState([img_ladya, img_horse,img_queen]);
+  const [arrayAnswer, setArrayAnswers] = useState([horse_ans, bishop_ans, queen_ans, pawn_ans, rook_ans, king_ans]);
   const [userAnswer, setUserAnswer] = useState("");
   const [isOver, setIsOver] = useState("");
   const [userResponce, setUserResponce] = useState(null);
-  const [actions, setActions] = useState(["+", '-',]);
-  const [currentAnswer, setCurrentAnswer] = useState("");
+  const [isCompleted, setIsCompleted] = useState(false)
+  const [currentAnswer, setCurrentAnswer] = useState('')
+
+  // function randomtask(arrayAnswer, array) {
+  //    /*let random = Math.floor(Math.random() * array.length);*/
+  //    var chosenImages = [];
+  //    const count = 3;
+
+  //  while (chosenImages.length < count) {
+
+  //    var randomIndex = Math.floor(Math.random() * arrayAnswer.length);
+
+  //    if (chosenImages.indexOf(arrayAnswer[randomIndex]) === -1) {
+  //      chosenImages.push(arrayAnswer[randomIndex]);
+  //    }
+  //  }
+
+  //  return chosenImages;
+    
+    
+  // }
+
 
   function checkAnswer(userResponce) {
     switch (value) {
       case "1":
-        if (userResponce === img_ladya) {
-          alert("win")
+        if (userResponce === rook_ans) {
+          toast("Молодец!");
+          setIsCompleted(true)
+          setCurrentAnswer("")
+                
         }
         else {
-          alert('lose')
+          toast("Ответ неправильный");
         }
         break;
+      case "2":
+        if (userResponce === horse_ans) {
+          toast("Молодец!");
+          setIsCompleted(true)
+          setCurrentAnswer("")
+        }
+        else {
+          toast("Ответ неправильный");
+        }
+        break;
+      case "3":
+        if(userResponce === queen_ans){
+          toast("Молодец!");
+          setIsCompleted(true)
+          setCurrentAnswer("")
+        }
+        else {
+          toast("Ответ неправильный");
+        }
     }
   }
+    const handleChange = (event, newValue) => {
+    if (isCompleted) {
+      setValue(newValue);
+    }
+    else {
+      toast("Сначала реши пример!");
+    }
+    };
+    useEffect(() => {
+      if (Number(value) === 3 && isCompleted) {
+
+       setIsOver(true)
+     }
+    }, [isCompleted, value])
+
+
+
+
+
   return (
     <div>
       <Header />
@@ -57,8 +125,8 @@ const Whos_turn = () => {
         )
           : (
             <main>
-              <div>
-                Реши пример
+              <div className='title'>
+                найди подходящую картинку
               </div>
               <div >
                 <div className="tabber">
@@ -72,26 +140,69 @@ const Whos_turn = () => {
                         </TabList>
                       </Box>
                       <TabPanel value="1">
-                        <div className="taskSym">
-                          <img src={img_ladya} alt="" />
-                          <div>
-                            <button onClick={() => checkAnswer(img_ladya)}><img src={img_ladya} alt="" /></button><button onClick={() => checkAnswer(img_horse)}><img src={img_horse} alt="" /></button><button onClick={() => checkAnswer(horse_ans)}><img src={horse_ans} alt="" /></button>
+                        <div className="task">
+
+                          <div className='task-img'>
+                            <img src={img_ladya} alt="" />
+
+                          </div>
+                          <div className='Answers'>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer(rook_ans)}><img src={rook_ans} alt=""  /></button> 
+                            </div>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer(pawn_ans)}><img src={pawn_ans} alt="" /></button>
+
+                            </div>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer(horse_ans)}><img src={horse_ans} alt="" /></button>
+
+                            </div>
                           </div>
                         </div>
                       </TabPanel>
                       <TabPanel value="2">
-                        <div >
+                      <div className="task">
 
-                        </div>
-                        <div>
+                          <div className='task-img'>
+                            <img src={img_horse} alt="" />
+
+                          </div>
+                          <div className='Answers'>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer()}><img src={rook_ans} alt="" /></button>
+                            </div>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer()}><img src={pawn_ans} alt="" /></button>
+
+                            </div>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer()}><img src={horse_ans} alt="" /></button>
+
+                            </div>
+                          </div>
                         </div>
                       </TabPanel>
                       <TabPanel value="3">
-                        <div >
+                        <div className="task">
 
-                        </div>
-                        <div >
+                          <div className='task-img'>
+                            <img src={img_queen} alt="" />
 
+                          </div>
+                          <div className='Answers'>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer(king_ans)}><img src={king_ans} alt="" /></button>
+                            </div>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer(queen_ans)}><img src={queen_ans} alt="" /></button>
+
+                            </div>
+                            <div className='selected-answer'>
+                              <button className='Answer' onClick={() => checkAnswer(rook_ans)}><img src={rook_ans} alt="" /></button>
+
+                            </div>
+                          </div>
                         </div>
                       </TabPanel>
                     </TabContext>

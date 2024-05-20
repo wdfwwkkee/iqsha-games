@@ -64,9 +64,9 @@
         },
         {
             "id" : 2,
-            "name" : "Примеры в картинках",
-            "tag" : "task_in_picture",
-            "image" : "assets/images/games_images/math/math_exmPic.jpg"
+            "name" : "Деньги",
+            "tag" : "math_game_money",
+            "image" : "assets/images/games_images/math/math_money.png"
         },
         {
             "id" : 3,

@@ -18,6 +18,7 @@ import MathMoneyGame from 'components/pages/MathGames/money_game/MathMoneyGame';
 import FindCouple from 'components/pages/MemoryGames/Find_a_couple/FindCouple';
 import Find_differences from 'components/pages/MemoryGames/Find_differences/Find_differences';
 import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
+import BuildPicture from 'components/pages/MemoryGames/BuildPicture/BuildPicture';
 
 function App() {
   return (
@@ -37,20 +38,21 @@ function App() {
           {/* MathGames */}
           <Route element={<MoreLess />} path="/games/math-games/more_lessor" />
           <Route element={<NumberSeries />} path="/games/math-games/number_series" />
-          <Route element={<TaskGames />} path="/games/math-games/tasks" />
-
-
-          
-
-    
+          <Route element={<TaskGames />} path="/games/math-games/tasks" />         
           <Route element={<NumberMathGame />} path="/games/math-games/number" />
           <Route element={<MathMoneyGame />} path="/games/math-games/math_game_money" />
-
-
-
+          {/* MemoryGames */}
           <Route element={<FindCouple />} path="/games/memory-games/find_couple" />
           <Route element={<Find_differences />} path="/games/memory-games/find_differences" />
+          <Route element={<BuildPicture />} path="/games/memory-games/build_picture"/>
+
+
+
+          {/* ChessGames */}
           <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
+
+
+
           {/* Other */}
           <Route element={<Contacts />} path="/contacts" />
 

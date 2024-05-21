@@ -19,6 +19,7 @@ import MathMoneyGame from 'components/pages/MathGames/money_game/MathMoneyGame';
 import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
 import FindDifferences from 'components/pages/MemoryGames/Find_differences/Find_differences';
 import FindCouple from 'components/pages/MemoryGames/Find_a_couple/FindCouple';
+import WhatExcess from 'components/pages/LogicGames/what_excess/WhatExcess';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
     
           <Route element={<NumberMathGame />} path="/games/math-games/number" />
           <Route element={<MathMoneyGame />} path="/games/math-games/math_game_money" />
+
+          <Route element={<WhatExcess />} path="/games/logic-games/what_excess" />
+
 
           <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
           {/* Other */}

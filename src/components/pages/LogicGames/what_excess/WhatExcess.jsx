@@ -10,90 +10,92 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Confetti from "components/UI/Confetti";
 
+import ExcessLvlOne from "./excessLevels/ExcessLvlOne";
+import ExcessLvlTwo from "./excessLevels/ExcessLvlTwo";
+import ExcessLvlThird from "./excessLevels/ExcessLvlThird";
+
 const WhatExcess = () => {
   const [value, setValue] = useState('1')
   const [isCompleted, setIsCompleted] = useState(false)
   const [isOver, setIsOver] = useState(false)
-
-  const [userAnswer, setUserAnswer] = useState("");
   const handleChange = (event, newValue) => {
 
-      if (isCompleted) {
-          setValue(newValue);
-      }
-      else {
-          toast("Сначала реши пример!");
-      }
+    if (isCompleted) {
+      setValue(newValue);
+    }
+    else {
+      toast("Сначала реши пример!");
+    }
   };
 
-  function checkAnswer() {
-      if ("") {
-          toast("Молодец!");
-          setIsCompleted(true)
-          if (Number(value) < 3) {
-              setValue(prev => (Number(prev) + 1).toString())
-              setIsCompleted(false)
-          }
-
-      } else {
-          toast("Ответ неправильный");
+  function checkAnswer(isTrue) {
+    if (isTrue) {
+      toast("Молодец!");
+      setIsCompleted(true)
+      if (Number(value) < 3) {
+        setValue(prev => (Number(prev) + 1).toString())
+        setIsCompleted(false)
       }
+
+    } else {
+      toast("Ответ неправильный");
+    }
   }
 
   useEffect(() => {
-      if (Number(value) === 3 && isCompleted) {
+    if (Number(value) === 3 && isCompleted) {
 
-          setIsOver(true)
-      }
+      setIsOver(true)
+    }
   }, [isCompleted, value])
 
   return (
-      <div>
-          <Header />
-          {isOver ? (
-              <main>
-                  Молодец ты прошел все уровни!
-                  <div>
-                      <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
-                  </div>
-                  <Confetti />
-              </main>
-          )
-              : (
-                  <main>
-                      <div className={style.title}>
-                          Какое число больше
-                      </div>
-                      <div className={style.task}>
-                          <div className="tabber">
-                              <Box sx={{ width: '100%', typography: 'body1' }}>
-                                  <TabContext value={value}>
-                                      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                          <TabList onChange={handleChange} centered aria-label="lab API tabs example">
-                                              <Tab label="Уровень 1 " value="1" />
-                                              <Tab label="Уровень 2" value="2" />
-                                              <Tab label="Уровень 3" value="3" />
-                                          </TabList>
-                                      </Box>
-                                      <TabPanel value="1">
-                                          
-                                      </TabPanel>
-                                      <TabPanel value="2">
-                                          
-                                      </TabPanel>
-                                      <TabPanel value="3">
-                                          
-                                      </TabPanel>
-                                  </TabContext>
-                              </Box>
-                              <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
-                              <ToastContainer style={{ fontSize: 17 }} />
-                          </div>
-                      </div>
-                  </main>
-              )
-          }
-      </div>
+    <div>
+      <Header />
+      {isOver ? (
+        <main>
+          Молодец ты прошел все уровни!
+          <div>
+            <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
+          </div>
+          <Confetti />
+        </main>
+      )
+        : (
+          <main>
+            <div className={style.title}>
+              Что лишнее?
+            </div>
+            <div className={style.task}>
+              <div className="tabber">
+                <Box sx={{ width: '100%', typography: 'body1' }}>
+                  <TabContext value={value}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                      <TabList onChange={handleChange} centered aria-label="lab API tabs example">
+                        <Tab label="Уровень 1 " value="1" />
+                        <Tab label="Уровень 2" value="2" />
+                        <Tab label="Уровень 3" value="3" />
+                      </TabList>
+                    </Box>
+                    <TabPanel value="1">
+                      <ExcessLvlOne style={style} checkAnswer={checkAnswer} />
+                    </TabPanel>
+                    <TabPanel value="2">
+                      <ExcessLvlTwo style={style} checkAnswer={checkAnswer} />
+                    </TabPanel>
+                    <TabPanel value="3">
+                      <ExcessLvlThird style={style} checkAnswer={checkAnswer} />
+                    </TabPanel>
+                  </TabContext>
+                </Box>
+                <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
+                <ToastContainer style={{ fontSize: 17 }} />
+              </div>
+            </div>
+          </main>
+        )
+      }
+    </div>
   )
 }
 

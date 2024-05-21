@@ -45,6 +45,10 @@ function App() {
 
           <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
 
+          <Route element={<WhatExcess />} path="/games/logic-games/what_excess"/>
+
+
+
 
 
           {/* Other */}

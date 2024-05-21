@@ -23,7 +23,6 @@ const MoreLess = () => {
     const handleChange = (event, newValue) => {
 
         if (isCompleted) {
-            console.log(isCompleted)
             setValue(newValue);
             setArray([...array].sort(() => Math.random() - 0.5))
         }

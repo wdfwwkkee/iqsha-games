@@ -3,7 +3,7 @@ import { useDroppable } from '@dnd-kit/core';
 import style from './droppable.module.scss'
 
 const DroppableHole = (props) => {
-    const { isOver, setNodeRef, active } = useDroppable({
+    const { setNodeRef, active } = useDroppable({
         id: props.id,
         data : {
             type : "type1"

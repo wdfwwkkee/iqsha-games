@@ -1,16 +1,18 @@
 import React from 'react'
-import DroppableHole from '../Droppable/DroppableHole';
-import Image1 from 'assets/images/math_games/number/numbers_5.png'
-import Image2 from 'assets/images/math_games/number/numbers_4.png'
+import Voron from 'assets/images/logic_games/continue_series/voron.png'
+import Spike from 'assets/images/logic_games/continue_series/spike.png'
+
+import ContinueSeriesDroppable from '../DroppableHole/ContinueSeriesDroppable';
 const ContinueSeriesLevelTwo = ({ style, currentItem, dragItems }) => {
     return (
         <div>
-            <div className={style.imagesList}>
-                <img src={Image1} alt="" />
-                <DroppableHole id="droppable">
+            <div className={style.seriesList}>
+                <img src={Voron} alt="" />
+                <img src={Spike} alt="" />
+                <img src={Voron} alt="" />
+                <ContinueSeriesDroppable id="droppable">
                     {!currentItem ? "Перетащи сюда" : <div>{currentItem}</div>}
-                </DroppableHole>
-                <img src={Image2} alt="" />
+                </ContinueSeriesDroppable>
             </div>
             <div className={style.answersList}>
                 {dragItems.map((item, index) => <div key={index}>{item}</div>)}

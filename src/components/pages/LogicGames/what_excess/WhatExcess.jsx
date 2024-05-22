@@ -18,6 +18,13 @@ const WhatExcess = () => {
   const [value, setValue] = useState('1')
   const [isCompleted, setIsCompleted] = useState(false)
   const [isOver, setIsOver] = useState(false)
+
+  function checkForCompleted() {
+    if (Number(value) < 3) {
+      setValue(prev => (Number(prev) + 1).toString())
+      setIsCompleted(false)
+    }
+  }
   const handleChange = (event, newValue) => {
 
     if (isCompleted) {
@@ -32,11 +39,7 @@ const WhatExcess = () => {
     if (isTrue) {
       toast("Молодец!");
       setIsCompleted(true)
-      if (Number(value) < 3) {
-        setValue(prev => (Number(prev) + 1).toString())
-        setIsCompleted(false)
-      }
-
+      checkForCompleted();
     } else {
       toast("Ответ неправильный");
     }
@@ -52,48 +55,50 @@ const WhatExcess = () => {
   return (
     <div>
       <Header />
-      {isOver ? (
-        <main>
-          Молодец ты прошел все уровни!
+      <main>
+        {isOver ? (
           <div>
-            <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
-          </div>
-          <Confetti />
-        </main>
-      )
-        : (
-          <main>
-            <div className={style.title}>
-              Что лишнее?
+            Молодец ты прошел все уровни!
+            <div>
+              <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
             </div>
-            <div className={style.task}>
-              <div className="tabber">
-                <Box sx={{ width: '100%', typography: 'body1' }}>
-                  <TabContext value={value}>
-                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                      <TabList onChange={handleChange} centered aria-label="lab API tabs example">
-                        <Tab label="Уровень 1 " value="1" />
-                        <Tab label="Уровень 2" value="2" />
-                        <Tab label="Уровень 3" value="3" />
-                      </TabList>
-                    </Box>
-                    <TabPanel value="1">
-                      <ExcessLvlOne style={style} checkAnswer={checkAnswer} />
-                    </TabPanel>
-                    <TabPanel value="2">
-                      <ExcessLvlTwo style={style} checkAnswer={checkAnswer} />
-                    </TabPanel>
-                    <TabPanel value="3">
-                      <ExcessLvlThird style={style} checkAnswer={checkAnswer} />
-                    </TabPanel>
-                  </TabContext>
-                </Box>
-                <ToastContainer style={{ fontSize: 17 }} />
+            <Confetti />
+          </div>
+        )
+          : (
+            <div>
+              <div className={style.title}>
+                Что лишнее?
+              </div>
+              <div className={style.task}>
+                <div className="tabber">
+                  <Box sx={{ width: '100%', typography: 'body1' }}>
+                    <TabContext value={value}>
+                      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                        <TabList onChange={handleChange} centered aria-label="lab API tabs example">
+                          <Tab label="Уровень 1 " value="1" />
+                          <Tab label="Уровень 2" value="2" />
+                          <Tab label="Уровень 3" value="3" />
+                        </TabList>
+                      </Box>
+                      <TabPanel value="1">
+                        <ExcessLvlOne style={style} checkAnswer={checkAnswer} />
+                      </TabPanel>
+                      <TabPanel value="2">
+                        <ExcessLvlTwo style={style} checkAnswer={checkAnswer} />
+                      </TabPanel>
+                      <TabPanel value="3">
+                        <ExcessLvlThird style={style} checkAnswer={checkAnswer} />
+                      </TabPanel>
+                    </TabContext>
+                  </Box>
+                </div>
               </div>
             </div>
-          </main>
-        )
-      }
+          )
+        }
+      </main>
+      <ToastContainer style={{ fontSize: 17 }} />
     </div>
   )
 }

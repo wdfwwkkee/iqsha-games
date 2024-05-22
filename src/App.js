@@ -15,11 +15,9 @@ import TaskGames from 'components/pages/MathGames/tasks_games/TaskGames';
 import MoreLess from 'components/pages/MathGames/MoreLess/MoreLess';
 import NumberMathGame from 'components/pages/MathGames/number_game/NumberMathGame';
 import MathMoneyGame from 'components/pages/MathGames/money_game/MathMoneyGame';
-import FindCouple from 'components/pages/MemoryGames/Find_a_couple/FindCouple';
-import Find_differences from 'components/pages/MemoryGames/Find_differences/Find_differences';
 import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
-import BuildPicture from 'components/pages/MemoryGames/BuildPicture/BuildPicture';
 import WhatExcess from 'components/pages/LogicGames/what_excess/WhatExcess';
+import ContinueSeries from 'components/pages/LogicGames/continue_series/ContinueSeries';
 
 function App() {
   return (
@@ -45,7 +43,9 @@ function App() {
 
           <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
 
+          {/* LogicGames */}
           <Route element={<WhatExcess />} path="/games/logic-games/what_excess"/>
+          <Route element={<ContinueSeries />} path="/games/logic-games/continue_series"/>
 
 
 

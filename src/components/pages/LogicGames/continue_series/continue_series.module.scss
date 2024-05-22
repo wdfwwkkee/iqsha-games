@@ -1,0 +1,14 @@
+.seriesList,
+.answersList {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    img {
+        max-width: 150px;
+    }
+}
+
+.seriesList {
+    margin-bottom: 80px;
+}

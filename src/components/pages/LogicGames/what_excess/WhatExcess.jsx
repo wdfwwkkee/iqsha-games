@@ -88,7 +88,6 @@ const WhatExcess = () => {
                     </TabPanel>
                   </TabContext>
                 </Box>
-                <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
                 <ToastContainer style={{ fontSize: 17 }} />
               </div>
             </div>

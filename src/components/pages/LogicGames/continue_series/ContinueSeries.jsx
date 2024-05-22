@@ -14,9 +14,19 @@ import DiamondImage from 'assets/images/logic_games/continue_series/diamond.png'
 import EmeraldImage from 'assets/images/logic_games/continue_series/emerald.png'
 import GoldImage from 'assets/images/logic_games/continue_series/gold.png'
 
+import Spike from 'assets/images/logic_games/continue_series/spike.png'
+import Voron from 'assets/images/logic_games/continue_series/voron.png'
+import Piper from 'assets/images/logic_games/continue_series/piper.png'
+
+import RobEmote1 from 'assets/images/logic_games/continue_series/roblox_1.png'
+import RobEmote2 from 'assets/images/logic_games/continue_series/roblox_2.png'
+import RobEmote3 from 'assets/images/logic_games/continue_series/roblox_3.png'
+
 import ContinueSeriesDragItems from "./DragItem/ContinueSeriesDragItems";
 import { DndContext } from '@dnd-kit/core';
 import ContinueSeriesLevelOne from "./Levels/ContinueSeriesLevelOne";
+import ContinueSeriesLevelTwo from "./Levels/ContinueSeriesLevelTwo";
+import ContinueSeriesLevelThird from "./Levels/ContinueSeriesLevelThird";
 
 
 const draggableOne = (
@@ -35,6 +45,38 @@ const draggableThird = (
     </ContinueSeriesDragItems>
 )
 
+const TWOdraggableOne = (
+    <ContinueSeriesDragItems name="voron" id="draggableOne">
+        <img src={Voron} alt="" />
+    </ContinueSeriesDragItems>
+)
+const TWOdraggableTwo = (
+    <ContinueSeriesDragItems name="spike" id="draggableTwo">
+        <img src={Spike} alt="" />
+    </ContinueSeriesDragItems>
+)
+const TWOdraggableThird = (
+    <ContinueSeriesDragItems name="piper" id="draggableThird">
+        <img src={Piper} alt="" />
+    </ContinueSeriesDragItems>
+)
+
+const THIRDdraggableOne = (
+    <ContinueSeriesDragItems name="happy" id="draggableOne">
+        <img src={RobEmote1} alt="" />
+    </ContinueSeriesDragItems>
+)
+const THIRDdraggableTwo = (
+    <ContinueSeriesDragItems name="poker" id="draggableTwo">
+        <img src={RobEmote2} alt="" />
+    </ContinueSeriesDragItems>
+)
+const THIRDdraggableThird = (
+    <ContinueSeriesDragItems name="cool" id="draggableThird">
+        <img src={RobEmote3} alt="" />
+    </ContinueSeriesDragItems>
+)
+
 const ContinueSeries = () => {
     const [dragItems, setDragItems] = useState([draggableOne, draggableTwo, draggableThird])
     const [currentItem, setCurrentItem] = useState()
@@ -42,7 +84,16 @@ const ContinueSeries = () => {
     const [currentAnswer, setCurrentAnswer] = useState('')
     const [isCompleted, setIsCompleted] = useState(false)
     const [isOver, setIsOver] = useState(false)
-    const answerOne = 'diamond'
+    const answerOne = 'emerald';
+    const answerTwo = 'spike'
+    const answerThird = 'cool'
+
+    function checkForCompleted() {
+        if (Number(value) < 3) {
+            setValue(prev => (Number(prev) + 1).toString())
+            setIsCompleted(false)
+        }
+    }
 
     const handleChange = (event, newValue) => {
 
@@ -60,14 +111,40 @@ const ContinueSeries = () => {
                 if (currentAnswer === answerOne) {
                     toast("Молодец!");
                     setIsCompleted(true)
-                    if (Number(value) < 3) {
-                        setValue(prev => (Number(prev) + 1).toString())
-                        setIsCompleted(false)
-                    }
+                    setCurrentAnswer("")
+                    setCurrentItem(null)
+                    checkForCompleted();
+                    setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
 
                 } else {
                     toast("Ответ неправильный");
                 }
+                break;
+            case '2':
+                if (currentAnswer === answerTwo) {
+                    toast("Молодец!");
+                    setIsCompleted(true)
+                    setCurrentAnswer("")
+                    setCurrentItem(null)
+                    checkForCompleted()
+                    setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
+
+                } else {
+                    toast("Ответ неправильный");
+                }
+                break;
+            case '3':
+                if (currentAnswer === answerThird) {
+                    toast("Молодец!");
+                    setIsCompleted(true)
+                    setCurrentAnswer("")
+                    setCurrentItem(null)
+                    checkForCompleted();
+                } else {
+                    toast("Ответ неправильный");
+                }
+                break;
+            default:
                 break;
         }
     }
@@ -128,8 +205,12 @@ const ContinueSeries = () => {
                                                 <ContinueSeriesLevelOne style={style} currentItem={currentItem} dragItems={dragItems} />
                                             </TabPanel>
                                             <TabPanel value="2">
+                                                <ContinueSeriesLevelTwo style={style} currentItem={currentItem} dragItems={dragItems} />
+
                                             </TabPanel>
                                             <TabPanel value="3">
+                                                <ContinueSeriesLevelThird style={style} currentItem={currentItem} dragItems={dragItems} />
+
                                             </TabPanel>
                                         </TabContext>
                                     </Box>

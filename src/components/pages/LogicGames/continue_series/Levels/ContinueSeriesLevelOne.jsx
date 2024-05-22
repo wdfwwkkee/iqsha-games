@@ -10,6 +10,7 @@ const ContinueSeriesLevelOne = ({ style, currentItem, dragItems }) => {
       <div className={style.seriesList}>
         <img src={DiamondImage} alt="" />
         <img src={EmeraldImage} alt="" />
+        <img src={DiamondImage} alt="" />
         <ContinueSeriesDroppable id="droppable">
           {!currentItem ? "" : <div>{currentItem}</div>}
         </ContinueSeriesDroppable>

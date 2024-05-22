@@ -1,0 +1,19 @@
+.title {
+    margin-bottom: 70px;
+}
+
+.answerList {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 30px;
+    button {
+        grid-column: span 6;
+        background: transparent;
+        img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    }
+}

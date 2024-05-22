@@ -3,202 +3,207 @@
     {
       "id": 1,
       "title": "Знаток шахмат",
-      "tag" : "chess",
+      "tag": "chess",
+      "status": "closed",
       "image": "assets/images/gamesTitle/Chess.jpg",
       "games": [
         {
-            "id" : 1,
-            "name" : "Найди тень",
-            "tag" : "find_shadow",
-            "image" : "assets/images/games_images/chess/chess_FindShadow.jpg"
+          "id": 1,
+          "name": "Найди тень",
+          "tag": "find_shadow",
+          "image": "assets/images/games_images/chess/chess_FindShadow.jpg"
         },
         {
-            "id" : 2,
-            "name" : "Пазлы",
-            "tag" : "puzzle",
-            "image" : "assets/images/games_images/chess/chess_Puzzle.jpg"
+          "id": 2,
+          "name": "Пазлы",
+          "tag": "puzzle",
+          "image": "assets/images/games_images/chess/chess_Puzzle.jpg"
         },
         {
-            "id" : 3,
-            "name" : "Расположи фигуры",
-            "tag" : "position_figure",
-            "image" : "assets/images/games_images/chess/chess_figure.svg"
+          "id": 3,
+          "name": "Расположи фигуры",
+          "tag": "position_figure",
+          "image": "assets/images/games_images/chess/chess_figure.svg"
         },
         {
-            "id" : 4,
-            "name" : "Комната",
-            "tag" : "room",
-            "image" : "assets/images/games_images/chess/chess_Room.png"
+          "id": 4,
+          "name": "Комната",
+          "tag": "room",
+          "image": "assets/images/games_images/chess/chess_Room.png"
         },
         {
-            "id" : 5,
-            "name" : "Кто так ходит",
-            "tag" : "whos_turn",
-            "image" : "assets/images/games_images/chess/chess_WhosTurn.png"
+          "id": 5,
+          "name": "Кто так ходит",
+          "tag": "whos_turn",
+          "image": "assets/images/games_images/chess/chess_WhosTurn.png"
         },
         {
-            "id" : 6,
-            "name" : "Ребус",
-            "tag" : "rebus",
-            "image" : "assets/images/games_images/chess/chess_Rebus.jpg"
+          "id": 6,
+          "name": "Ребус",
+          "tag": "rebus",
+          "image": "assets/images/games_images/chess/chess_Rebus.jpg"
         },
         {
-            "id" : 7,
-            "name" : "Загадки",
-            "tag" : "riddle",
-            "image" : "assets/images/games_images/chess/chess_Riddles.jpg"
+          "id": 7,
+          "name": "Загадки",
+          "tag": "riddle",
+          "image": "assets/images/games_images/chess/chess_Riddles.jpg"
         }
       ]
     },
     {
       "id": 2,
       "title": "Математика",
-      "tag" : "math",
+      "tag": "math",
       "image": "assets/images/gamesTitle/MathTitle.png",
       "games": [
         {
-            "id" : 1,
-            "name" : "Число. Цифра. Количество",
-            "tag" : "number",
-            "image" : "assets/images/games_images/math/math_number_count.png"
+          "id": 1,
+          "name": "Число. Цифра. Количество",
+          "tag": "number",
+          "image": "assets/images/games_images/math/math_number_count.png"
         },
         {
-            "id" : 2,
-            "name" : "Деньги",
-            "tag" : "math_game_money",
-            "image" : "assets/images/games_images/math/math_money.png"
+          "id": 2,
+          "name": "Деньги",
+          "tag": "math_game_money",
+          "image": "assets/images/games_images/math/math_money.png"
         },
         {
-            "id" : 3,
-            "name" : "Больше-Меньше",
-            "tag" : "more_lessor",
-            "image" : "assets/images/games_images/math/math_more_less.jpg"
+          "id": 3,
+          "name": "Больше-Меньше",
+          "tag": "more_lessor",
+          "image": "assets/images/games_images/math/math_more_less.jpg"
         },
         {
-            "id" : 4,
-            "name" : "Задачи",
-            "tag" : "tasks",
-            "image" : "assets/images/games_images/math/math_tasks.jpg"
+          "id": 4,
+          "name": "Задачи",
+          "tag": "tasks",
+          "image": "assets/images/games_images/math/math_tasks.jpg"
         },
         {
-            "id" : 5,
-            "name" : "Числовой ряд",
-            "tag" : "number_series",
-            "image" : "assets/images/games_images/math/math_numbers.jpg"
+          "id": 5,
+          "name": "Числовой ряд",
+          "tag": "number_series",
+          "image": "assets/images/games_images/math/math_numbers.jpg"
         }
       ]
     },
     {
       "id": 3,
       "title": "Чтение и грамота",
-      "tag" : "reading",
+      "status": "closed",
+      "tag": "reading",
       "image": "assets/images/gamesTitle/ReadTitle.jpg",
       "games": [
         {
-            "id" : 1,
-            "name" : "Узнай букву по звуку",
-            "tag" : "sound",
-            "image" : "assets/images/games_images/reading/reading_SpellWord.svg"
+          "id": 1,
+          "name": "Узнай букву по звуку",
+          "tag": "sound",
+          "image": "assets/images/games_images/reading/reading_SpellWord.svg"
         },
         {
-            "id" : 2,
-            "name" : "Состовляем слова",
-            "tag" : "build_word",
-            "image" : "assets/images/games_images/reading/reading_createWord.png"
+          "id": 2,
+          "name": "Состовляем слова",
+          "tag": "build_word",
+          "image": "assets/images/games_images/reading/reading_createWord.png"
         },
         {
-            "id" : 3,
-            "name" : "Соедини слово с картинкой",
-            "tag" : "connect_word_picture",
-            "image" : "assets/images/games_images/reading/reading_connectWord.svg"
+          "id": 3,
+          "name": "Соедини слово с картинкой",
+          "tag": "connect_word_picture",
+          "image": "assets/images/games_images/reading/reading_connectWord.svg"
         },
         {
-            "id" : 4,
-            "name" : "Прятки с буквами",
-            "tag" : "hide_word",
-            "image" : "assets/images/games_images/reading/reading_hiddingWord.svg"
+          "id": 4,
+          "name": "Прятки с буквами",
+          "tag": "hide_word",
+          "image": "assets/images/games_images/reading/reading_hiddingWord.svg"
         },
         {
-            "id" : 5,
-            "name" : "Прочитай слоги",
-            "tag" : "speach_syllables",
-            "image" : "assets/images/games_images/reading/reading_readSlog.png"
+          "id": 5,
+          "name": "Прочитай слоги",
+          "tag": "speach_syllables",
+          "image": "assets/images/games_images/reading/reading_readSlog.png"
         }
       ]
     },
     {
       "id": 4,
       "title": "Логика и мышление",
-      "tag" : "logic",
+      "tag": "logic",
       "image": "assets/images/gamesTitle/LogicTitle.jpg",
       "games": [
         {
-            "id" : 1,
-            "name" : "Что лишнее",
-            "tag" : "what_excess",
-            "image" : "assets/images/games_images/logic/logic_whatSuperfluous.jpg"
+          "id": 1,
+          "name": "Что лишнее",
+          "tag": "what_excess",
+          "image": "assets/images/games_images/logic/logic_whatSuperfluous.jpg"
         },
         {
-            "id" : 2,
-            "name" : "Продолжи ряд",
-            "tag" : "continue_series",
-            "image" : "assets/images/games_images/logic/logic_continue.jpg"
+          "id": 2,
+          "name": "Продолжи ряд",
+          "tag": "continue_series",
+          "image": "assets/images/games_images/logic/logic_continue.jpg"
         },
         {
-            "id" : 3,
-            "name" : "Назови одним словом",
-            "tag" : "one_word",
-            "image" : "assets/images/games_images/logic/logic_oneWord.jpg"
+          "id": 3,
+          "name": "Назови одним словом",
+          "tag": "one_word",
+          "image": "assets/images/games_images/logic/logic_oneWord.jpg"
         },
         {
-            "id" : 4,
-            "name" : "Логические загадки",
-            "tag" : "logic_riddles",
-            "image" : "assets/images/games_images/logic/logic_logicTasks.jpg"
+          "id": 4,
+          "name": "Логические загадки",
+          "status": "closed",
+          "tag": "logic_riddles",
+          "image": "assets/images/games_images/logic/logic_logicTasks.jpg"
         },
         {
-            "id" : 5,
-            "name" : "Логические загадки",
-            "tag" : "logic_riddles",
-            "image" : "assets/images/games_images/logic/logic_logicTasks.jpg"
+          "id": 5,
+          "name": "Логические загадки",
+          "status": "closed",
+          "tag": "logic_riddles",
+          "image": "assets/images/games_images/logic/logic_logicTasks.jpg"
         }
       ]
     },
     {
       "id": 5,
       "title": "Внимание и память",
-      "tag" : "memory",
+      "status": "closed",
+      "tag": "memory",
       "image": "assets/images/gamesTitle/MemoryTitle.jpg",
       "games": [
         {
-            "id" : 1,
-            "name" : "Найди пару",
-            "tag" : "find_couple",
-            "image" : "assets/images/games_images/memory/memory_findCouple.jpg"
+          "id": 1,
+          "name": "Найди пару",
+          "tag": "find_couple",
+          "image": "assets/images/games_images/memory/memory_findCouple.jpg"
         },
         {
-            "id" : 2,
-            "name" : "Найди отличия",
-            "tag" : "find_differences",
-            "image" : "assets/images/games_images/memory/memory_findDifferences.jpg"
+          "id": 2,
+          "name": "Найди отличия",
+          "tag": "find_differences",
+          "image": "assets/images/games_images/memory/memory_findDifferences.jpg"
         },
         {
-            "id" : 3,
-            "name" : "Вспомни картинки",
-            "tag" : "remember_pictures",
-            "image" : "assets/images/games_images/memory/memory_rememberPic.jpg"
+          "id": 3,
+          "name": "Вспомни картинки",
+          "tag": "remember_pictures",
+          "image": "assets/images/games_images/memory/memory_rememberPic.jpg"
         },
         {
-            "id" : 4,
-            "name" : "Подбери фрагмент",
-            "tag" : "find_fragment",
-            "image" : "assets/images/games_images/memory/memory_matchAFragment.jpg"
+          "id": 4,
+          "name": "Подбери фрагмент",
+          "tag": "find_fragment",
+          "image": "assets/images/games_images/memory/memory_matchAFragment.jpg"
         },
         {
-            "id" : 5,
-            "name" : "Собери картинку",
-            "tag" : "build_picture",
-            "image" : "assets/images/games_images/memory/memory_buildPic.jpg"
+          "id": 5,
+          "name": "Собери картинку",
+          "tag": "build_picture",
+          "image": "assets/images/games_images/memory/memory_buildPic.jpg"
         }
       ]
     }

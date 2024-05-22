@@ -19,6 +19,7 @@ import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
 import WhatExcess from 'components/pages/LogicGames/what_excess/WhatExcess';
 import ContinueSeries from 'components/pages/LogicGames/continue_series/ContinueSeries';
 import OneWord from 'components/pages/LogicGames/one_word/OneWord';
+import FindCouple from 'components/pages/MemoryGames/Find_a_couple/FindCouple';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route element={<NumberMathGame />} path="/games/math-games/number" />
           <Route element={<MathMoneyGame />} path="/games/math-games/math_game_money" />
 
+          <Route element={<FindCouple />} path="/games/memory-games/find_couple" />
           <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
 
           {/* LogicGames */}

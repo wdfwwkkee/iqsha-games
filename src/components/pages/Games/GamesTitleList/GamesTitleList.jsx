@@ -3,8 +3,7 @@ import { iqshaService } from 'service/iqsha.service'
 import { useQuery } from "@tanstack/react-query";
 import GameItem from './GameItem/GameItem';
 import style from './gameList.module.scss'
-import { Link } from 'react-router-dom';
-import Back from 'Layouts/Back/Back';
+
 
 const GamesTitleList = () => {
 
@@ -32,9 +31,6 @@ const GamesTitleList = () => {
                 <div className={style.gamesList}>
                     {data.map((item, index) => <GameItem key={item.id} item={item} />)}
                 </div>
-
-
-                <Back />
             </div>
         </div>
     )

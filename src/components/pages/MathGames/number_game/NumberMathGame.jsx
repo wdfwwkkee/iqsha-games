@@ -1,4 +1,3 @@
-import Header from 'Layouts/LayoutsHome/Header'
 import React, { useEffect, useState } from 'react'
 import { DndContext } from '@dnd-kit/core';
 import DragItem from './DragItem/DragItem';
@@ -14,12 +13,11 @@ import { Link } from "react-router-dom";
 import NumberLevelOne from './Level/NumberLevelOne';
 import NumberLevelTwo from './Level/NumberLevelTwo';
 import NumberLevelThird from './Level/NumberLevelThird';
+import GameOver from 'Layouts/GameOver/GameOver';
+import Back from 'Layouts/Back/Back';
 
 // Images4LevelOne
-
-
 import Image1 from 'assets/images/math_games/number/num_2.png'
-
 import Image2 from 'assets/images/math_games/number/numbers_1.png'
 import Image3 from 'assets/images/math_games/number/numbers_2.png'
 
@@ -34,8 +32,6 @@ import Image6 from 'assets/images/math_games/number/num_5.png'
 import Image7 from 'assets/images/math_games/number/quan_2.png'
 import Image8 from 'assets/images/math_games/number/numbers_6.png'
 import Image9 from 'assets/images/math_games/number/num_6.png'
-import Confetti from 'components/UI/Confetti';
-
 
 //LevelOne
 const draggableOne = (
@@ -184,20 +180,13 @@ const NumberMathGame = () => {
         }
     }
     return (
-        <div>
-            <Header />
+        <div className='GameDisplay'>
             <main>
                 {isOver ? (
-                    <main>
-                        Молодец ты прошел все уровни!
-                        <div>
-                            <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
-                        </div>
-                        <Confetti />
-                    </main>
+                    <GameOver />
                 )
                     : (
-                        <main>
+                        <div>
                             <div className={style.title}>Найди подходящую картинку</div>
                             <div className="tabber">
                                 <DndContext onDragEnd={handleDragEnd}>
@@ -224,7 +213,8 @@ const NumberMathGame = () => {
                                 </DndContext>
                                 <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
                             </div>
-                        </main >
+                            <Back />
+                        </div >
                     )
                 }
             </main>

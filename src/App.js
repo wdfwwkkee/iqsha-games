@@ -1,5 +1,5 @@
 import Games from 'components/pages/Games/Games';
-import Home from "./components/pages/Home/Home";
+// import Home from "./components/pages/Home/Home";
 import Contacts from "./components/pages/Contact/Contacts";
 
 import 'assets/styles/index.scss'
@@ -15,7 +15,7 @@ import TaskGames from 'components/pages/MathGames/tasks_games/TaskGames';
 import MoreLess from 'components/pages/MathGames/MoreLess/MoreLess';
 import NumberMathGame from 'components/pages/MathGames/number_game/NumberMathGame';
 import MathMoneyGame from 'components/pages/MathGames/money_game/MathMoneyGame';
-import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
+// import Whos_turn from 'components/pages/ChessGames/whos_turn/Whos_turn';
 import WhatExcess from 'components/pages/LogicGames/what_excess/WhatExcess';
 import ContinueSeries from 'components/pages/LogicGames/continue_series/ContinueSeries';
 import OneWord from 'components/pages/LogicGames/one_word/OneWord';
@@ -25,10 +25,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact element={<Home />} path="/" />
-
           {/* GamePages */}
-          <Route element={<Games />} path="/games" />
+          <Route element={<Games />} path="/" />
           <Route element={<ChessGames />} path="/games/chess-games" />
           <Route element={<MathGames />} path="/games/math-games" />
           <Route element={<ReadingGames />} path="/games/reading-games" />
@@ -42,7 +40,7 @@ function App() {
           <Route element={<NumberMathGame />} path="/games/math-games/number" />
           <Route element={<MathMoneyGame />} path="/games/math-games/math_game_money" />
 
-          <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/>
+          {/* <Route element={<Whos_turn />} path="/games/chess-games/whos_turn"/> */}
 
           {/* LogicGames */}
           <Route element={<WhatExcess />} path="/games/logic-games/what_excess"/>

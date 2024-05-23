@@ -12,6 +12,8 @@ import Confetti from "components/UI/Confetti";
 import OneWordLevelOne from "./Levels/OneWordLevelOne";
 import OneWordLevelTwo from "./Levels/OneWordLevelTwo";
 import OneWordLevelThird from "./Levels/OneWordLevelThird";
+import GameOver from "Layouts/GameOver/GameOver";
+import Back from "Layouts/Back/Back";
 
 
 const titles = ['Это круглое, красное и сочное', 'Это белое и маленькое', 'Это зеленое и медленное']
@@ -74,19 +76,12 @@ const OneWord = () => {
 
     return (
         <div>
-            <Header />
             <main>
                 {isOver ? (
-                    <div>
-                        Молодец ты прошел все уровни!
-                        <div>
-                            <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
-                        </div>
-                        <Confetti />
-                    </div>
+                    <GameOver />
                 )
                     : (
-                        <div>
+                        <div className="GameDisplay">
                             <div className={style.title}>
                                 {`${currentTitle}. Что это?`}
                             </div>
@@ -113,6 +108,7 @@ const OneWord = () => {
                                         </TabContext>
                                     </Box>
                                 </div>
+                                <Back />
                             </div>
                         </div>
                     )

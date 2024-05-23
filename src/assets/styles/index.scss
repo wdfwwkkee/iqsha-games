@@ -1,57 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 * {
-    box-sizing: border-box;
-    color: black;
-    padding: 0;
-    text-transform: none;
-    font-family: "Open Sans", sans-serif;
-    margin: 0;
+  box-sizing: border-box;
+  color: black;
+  padding: 0;
+  text-transform: none;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
 }
 
 a {
-    text-transform: none;
+  text-transform: none;
 }
 
 body {
-    font-size: 35px;
-    background: #edf6ff;
+  font-size: 35px;
+  background: #edf6ff;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 input::placeholder {
-    padding: 5px;
-    color: grey;
+  padding: 5px;
+  color: grey;
 }
 
-
-.wrapper {
-
+.GameDisplay {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
 }
+
 
 .inner-wrapper {
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
-
-.back {
-    position: absolute;
-    top: 20px;
-    left: 50px;
-
-    svg {
-        transition: transform .3s ease;
-    }
-
-    &:hover {
-        svg {
-            transition: transform .3s ease;
-            transform: rotate(180deg);
-        }
-    }
+  max-width: 1300px;
+  margin: 0 auto;
 }

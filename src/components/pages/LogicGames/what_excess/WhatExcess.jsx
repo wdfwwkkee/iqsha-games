@@ -13,6 +13,8 @@ import Confetti from "components/UI/Confetti";
 import ExcessLvlOne from "./excessLevels/ExcessLvlOne";
 import ExcessLvlTwo from "./excessLevels/ExcessLvlTwo";
 import ExcessLvlThird from "./excessLevels/ExcessLvlThird";
+import GameOver from "Layouts/GameOver/GameOver";
+import Back from "Layouts/Back/Back";
 
 const WhatExcess = () => {
   const [value, setValue] = useState('1')
@@ -54,19 +56,12 @@ const WhatExcess = () => {
 
   return (
     <div>
-      <Header />
       <main>
         {isOver ? (
-          <div>
-            Молодец ты прошел все уровни!
-            <div>
-              <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
-            </div>
-            <Confetti />
-          </div>
+          <GameOver />
         )
           : (
-            <div>
+            <div className="GameDisplay">
               <div className={style.title}>
                 Что лишнее?
               </div>
@@ -93,6 +88,7 @@ const WhatExcess = () => {
                     </TabContext>
                   </Box>
                 </div>
+                <Back />
               </div>
             </div>
           )

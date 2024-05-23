@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import style from './tasks_games.module.scss'
-import Header from 'Layouts/LayoutsHome/Header'
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -8,7 +7,8 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import Confetti from "components/UI/Confetti";
+import GameOver from "Layouts/GameOver/GameOver";
+import Back from "Layouts/Back/Back";
 
 const TaskGames = () => {
 
@@ -20,7 +20,7 @@ const TaskGames = () => {
     const [userAnswer, setUserAnswer] = useState("");
     const [actions, setActions] = useState(["+", '-',]);
     const [firstSym, setFirstSym] = useState(array[Math.floor(Math.random() * array.length)]);
-    const [secondSym, setSecondSym] = useState(firstSym === array[Math.floor(Math.random() * array.length)] ? array[Math.floor(Math.random() * array.length)] : array[Math.floor(Math.random() * array.length)])
+    const [secondSym, setSecondSym] = useState(firstSym === array[Math.floor(Math.random() * array.length)] > firstSym ? array[Math.floor(Math.random() * array.length)] : array[Math.floor(Math.random() * array.length)])
     const [action, setAction] = useState(actions[Math.floor(Math.random() * actions.length)])
     const result = eval(firstSym + action + secondSym)
 
@@ -63,17 +63,12 @@ const TaskGames = () => {
 
     return (
         <div>
-            <Header />
             <main>
                 {isOver ? (
-                    <div>
-                        <div>Молодец ты прошел все уровни!</div>
-                        <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
-                        <Confetti />
-                    </div>
+                    <GameOver />
                 )
                     : (
-                        <div>
+                        <div className="GameDisplay">
                             <div className={style.title}>
                                 Реши пример
                             </div>
@@ -133,6 +128,7 @@ const TaskGames = () => {
                                     <ToastContainer style={{ fontSize: 17 }} />
                                 </div>
                             </div>
+                            <Back />
                         </div>
                     )
                 }

@@ -27,7 +27,6 @@ const ChessGames = () => {
   }
   return (
     <div>
-      <Header />
       <div className="inner-wrapper">
         <div className={style.list}>
           {data.games.map((item, index) => <Game key={item.id} item={item} />)}

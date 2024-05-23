@@ -1,4 +1,3 @@
-import Header from "Layouts/LayoutsHome/Header";
 import React, { useEffect, useState } from "react";
 import style from "./number_series.module.scss";
 
@@ -12,7 +11,8 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import GenerateLvl from "./GeratorLvls/GenerateLvl";
 import { Link } from "react-router-dom";
-import Confetti from "components/UI/Confetti";
+import GameOver from "Layouts/GameOver/GameOver";
+import Back from "Layouts/Back/Back";
 
 const NumberSeries = () => {
 
@@ -56,17 +56,12 @@ const NumberSeries = () => {
   }
   return (
     <div>
-      <Header />
       <main>
         {isOver ? (
-          <div>
-            <div>Молодец ты прошел все уровни!</div>
-            <Link style={{ textDecoration: "none", color: "blue" }} to={"/games"}>Перейти к другим играм</Link>
-            <Confetti />
-          </div>
+          <GameOver />
         )
           : (
-            <div>
+            <div className="GameDisplay">
               <div className={style.title}>Расставь в правильном порядке</div>
               <div className="tabber">
                 <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -85,6 +80,7 @@ const NumberSeries = () => {
                 </Box>
                 <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
               </div>
+              <Back />
             </div>
           )
         }

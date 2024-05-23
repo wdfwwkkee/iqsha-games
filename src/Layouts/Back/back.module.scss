@@ -1,0 +1,16 @@
+.back {
+  position: absolute;
+  top: 7%;
+  left: 6%;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    svg {
+      transition: transform 0.3s ease;
+      transform: rotate(180deg);
+    }
+  }
+}

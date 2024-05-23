@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Game = ({ item }) => {
 
     const gameImage = item.image;
-    console.log(item)
+    console.log("game")
 
     return (
         <Link className={style.item} to={`${item.tag}`}>

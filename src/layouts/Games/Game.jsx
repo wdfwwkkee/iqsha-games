@@ -5,15 +5,28 @@ import { Link } from 'react-router-dom';
 const Game = ({ item }) => {
 
     const gameImage = item.image;
-    console.log("game")
+    const gameStatus = item.status;
+    console.log(gameImage)
 
     return (
-        <Link className={style.item} to={`${item.tag}`}>
-            <div>
-                <img src={`${process.env.PUBLIC_URL}/${gameImage}`} alt="" />
-                <div className={style.gameName}>{item.name}</div>
-            </div>
-        </Link>
+        <div className={style.item} title="Находится в разработке">
+            {gameStatus ? (
+                <div>
+                    <img src={`${process.env.PUBLIC_URL}/assets/images/other/closed.png`} alt="" />
+                    <div className={style.gameName}>{item.name}</div>
+                </div>
+            )
+                : (
+                    <Link to={`${item.tag}`}>
+                        <div>
+                            <img src={`${process.env.PUBLIC_URL}/${gameImage}`} alt="" />
+                            <div className={style.gameName}>{item.name}</div>
+                        </div>
+                    </Link>
+                )
+            }
+        </div >
+
     )
 }
 

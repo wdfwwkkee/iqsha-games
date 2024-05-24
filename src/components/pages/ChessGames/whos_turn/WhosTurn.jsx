@@ -21,6 +21,7 @@ import pawn_ans from "assets/images/chess_games/pawn_ans.jpg"
 import rook_ans from "assets/images/chess_games/rook_ans.jpg"
 import king_ans from "assets/images/chess_games/king_ans.jpg"
 import GameOver from 'Layouts/GameOver/GameOver';
+import Back from 'Layouts/Back/Back';
 
 
 
@@ -172,6 +173,7 @@ const WhosTurn = () => {
                   </Box>
                 </div>
               </div>
+              <Back />
             </div>
           )
         }

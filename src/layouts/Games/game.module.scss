@@ -1,5 +1,11 @@
 .item {
     background: white;
+    text-align: center;
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     grid-column: span 4;
     padding: 20px;
     position: relative;

@@ -28,7 +28,7 @@ function App() {
           {/* GamePages */}
           <Route exact element={<Games />} path="/iqsha-games/" />
           <Route element={<ChessGames />} path="/iqsha-games/games/chess-games" />
-          <Route element={<MathGames />} path="/games/math-games" />
+          <Route element={<MathGames />} path="/iqsha-games/games/math-games" />
           {/* <Route element={<ReadingGames />} path="/games/reading-games" /> */}
           {/* <Route element={<MemoryGames />} path="/games/memory-games" /> */}
           <Route element={<LogicGames />} path="/iqsha-games/games/logic-games" />

@@ -4,30 +4,33 @@
       "id": 1,
       "title": "Знаток шахмат",
       "tag": "chess",
-      "status": "closed",
       "image": "assets/images/gamesTitle/Chess.jpg",
       "games": [
         {
           "id": 1,
           "name": "Найди тень",
+          "status": "closed",
           "tag": "find_shadow",
           "image": "assets/images/games_images/chess/chess_FindShadow.jpg"
         },
         {
           "id": 2,
           "name": "Пазлы",
+          "status": "closed",
           "tag": "puzzle",
           "image": "assets/images/games_images/chess/chess_Puzzle.jpg"
         },
         {
           "id": 3,
           "name": "Расположи фигуры",
+          "status": "closed",
           "tag": "position_figure",
           "image": "assets/images/games_images/chess/chess_figure.svg"
         },
         {
           "id": 4,
           "name": "Комната",
+          "status": "closed",
           "tag": "room",
           "image": "assets/images/games_images/chess/chess_Room.png"
         },
@@ -40,12 +43,14 @@
         {
           "id": 6,
           "name": "Ребус",
+          "status": "closed",
           "tag": "rebus",
           "image": "assets/images/games_images/chess/chess_Rebus.jpg"
         },
         {
           "id": 7,
           "name": "Загадки",
+          "status": "closed",
           "tag": "riddle",
           "image": "assets/images/games_images/chess/chess_Riddles.jpg"
         }

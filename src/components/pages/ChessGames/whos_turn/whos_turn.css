@@ -1,7 +1,9 @@
 .Answers{
     display: flex;
     margin-bottom: 100px;
+    align-items: center;
     justify-content: center;
+    gap: 10px;
     margin-top: 50px;
 }
 

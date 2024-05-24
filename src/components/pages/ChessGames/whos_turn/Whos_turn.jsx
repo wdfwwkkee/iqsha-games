@@ -31,12 +31,18 @@ const Whos_turn = () => {
 
   const [array, setArray] = useState([img_ladya, img_horse,img_queen]);
   const [arrayAnswer, setArrayAnswers] = useState([horse_ans, bishop_ans, queen_ans, pawn_ans, rook_ans, king_ans]);
-  const [userAnswer, setUserAnswer] = useState("");
   const [isOver, setIsOver] = useState("");
   const [userResponce, setUserResponce] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false)
   const [currentAnswer, setCurrentAnswer] = useState('')
 
+
+  function checkForCompleted() {
+    if (Number(value) < 3) {
+        setValue(prev => (Number(prev) + 1).toString())
+        setIsCompleted(false)
+    }
+}
   // function randomtask(arrayAnswer, array) {
   //    /*let random = Math.floor(Math.random() * array.length);*/
   //    var chosenImages = [];
@@ -64,7 +70,7 @@ const Whos_turn = () => {
           toast("Молодец!");
           setIsCompleted(true)
           setCurrentAnswer("")
-                
+          checkForCompleted();     
         }
         else {
           toast("Ответ неправильный");
@@ -75,6 +81,7 @@ const Whos_turn = () => {
           toast("Молодец!");
           setIsCompleted(true)
           setCurrentAnswer("")
+          checkForCompleted();
         }
         else {
           toast("Ответ неправильный");
@@ -85,6 +92,7 @@ const Whos_turn = () => {
           toast("Молодец!");
           setIsCompleted(true)
           setCurrentAnswer("")
+          checkForCompleted();
         }
         else {
           toast("Ответ неправильный");
@@ -170,14 +178,14 @@ const Whos_turn = () => {
                           </div>
                           <div className='Answers'>
                             <div className='selected-answer'>
-                              <button className='Answer' onClick={() => checkAnswer()}><img src={rook_ans} alt="" /></button>
+                              <button className='Answer' onClick={() => checkAnswer(bishop_ans)}><img src={bishop_ans} alt="" /></button>
                             </div>
                             <div className='selected-answer'>
-                              <button className='Answer' onClick={() => checkAnswer()}><img src={pawn_ans} alt="" /></button>
+                              <button className='Answer' onClick={() => checkAnswer(pawn_ans)}><img src={pawn_ans} alt="" /></button>
 
                             </div>
                             <div className='selected-answer'>
-                              <button className='Answer' onClick={() => checkAnswer()}><img src={horse_ans} alt="" /></button>
+                              <button className='Answer' onClick={() => checkAnswer(horse_ans)}><img src={horse_ans} alt="" /></button>
 
                             </div>
                           </div>

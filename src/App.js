@@ -19,6 +19,7 @@ import WhosTurn from 'components/pages/ChessGames/whos_turn/WhosTurn';
 import WhatExcess from 'components/pages/LogicGames/what_excess/WhatExcess';
 import ContinueSeries from 'components/pages/LogicGames/continue_series/ContinueSeries';
 import OneWord from 'components/pages/LogicGames/one_word/OneWord';
+import AccountPage from 'Layouts/AccountPage/AccountPage';
 
 function App() {
   return (
@@ -55,8 +56,8 @@ function App() {
 
 
           
-
-
+          {/* {AccountPage} */}
+          <Route element={<AccountPage />} path="/account" />
 
 
 

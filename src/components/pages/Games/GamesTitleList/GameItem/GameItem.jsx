@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const GameItem = ({ item }) => {
     const status = item.status;
-    console.log("gamecat")
     const gameImage = item.image;
     return (
         <div className={style.item}>
@@ -17,7 +16,7 @@ const GameItem = ({ item }) => {
                 </Link>
             )
                 : (
-                    <Link to={`/games/${item.tag}-games`}>
+                    <Link to={`/iqsha-games/games/${item.tag}-games`}>
                         <div>
                             <img src={`${process.env.PUBLIC_URL}/${gameImage}`} alt="" />
                             <div className={style.itemTitle}>{item.title}</div>

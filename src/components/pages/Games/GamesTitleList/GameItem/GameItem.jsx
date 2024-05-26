@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const GameItem = ({ item }) => {
     const status = item.status;
-    console.log("gamecat")
     const gameImage = item.image;
 
     const navigate = useNavigate();
@@ -22,8 +21,7 @@ const GameItem = ({ item }) => {
                 </Link>
             )
                 : (
-                    
-                    <Link to={`/iqsha-games/games/${item.tag}-games`}  >
+                    <Link to={`/iqsha-games/games/${item.tag}-games`}>
                         <div>
                             <img src={`${process.env.PUBLIC_URL}/${gameImage}`} alt="" />
                             <div className={style.itemTitle}>{item.title}</div>

@@ -21,10 +21,6 @@
     padding: 15px 30px;
 }
 
-.acc{
-    background: none;
-}
-
 .About{
     padding: 20px;
     display: flex;
@@ -61,6 +57,22 @@
 
 
     /* animation: nav-anim 0.3s linear infinite alternate; */
+    
+}
+
+.login-btn{
+    margin-top: 5px;
+    max-height: 40px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+}
+.login-btn:hover{
+    background: indianred ;
+    border-color: rgb(121, 42, 42);
+    transition: all 500ms ease;
     
 }
 

@@ -32,3 +32,14 @@ button{
 .admin-container .activeButton{
     border: black solid 2px;
 }
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}
+.loginform{
+    margin-top: 10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

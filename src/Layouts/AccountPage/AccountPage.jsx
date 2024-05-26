@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import Header from 'Layouts/LayoutsHome/Header';
 import './AccountPage.css';
+import { useNavigate } from 'react-router-dom';
 const AccountPage = () => {
+    const [authAccount, setAuthAccount] = useState(false);
+    
+
+
     const LoginForm = () => {
         return (
             <form>
@@ -14,74 +19,18 @@ const AccountPage = () => {
         );
     };
 
-    const RegisterForm = () => {
-        const [newAccount, setNewAccount] = useState(true)
-        const Name = '';
-        const Email = '';
-        const Password = '';
-        if (newAccount) {
-            
-        }
-        return (
-            <form>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" />
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Your Email" />
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Your Password" />
-                <button type="submit">Register</button>
-            </form>
-        );
-    };
-
-
-    const SwitchMethod = () => {
-        const [method, setMethod] = useState('Login')
-        if (method === 'Login') {
-            return (
-                <div>
-                    <div className='setMethods'>
-                        <button className={method === 'Login' ? 'activeButton' : ''} onClick={() => setMethod('Login')}>Login</button>
-                        <button className={method === 'Register' ? 'activeButton' : ''} onClick={() => setMethod('Register')}>Register</button>
-                    </div>
-                    <LoginForm />
-                </div>
-            );
-        }
-        if (method === 'Register') {
-            return (
-                <div>
-                    <div className='setMethods'>
-                        <button className={method === 'Login' ? 'activeButton' : ''} onClick={() => setMethod('Login')}>Login</button>
-                        <button className={method === 'Register' ? 'activeButton' : ''} onClick={() => setMethod('Register')}>Register</button>
-                    </div>
-                    <RegisterForm />
-                </div>
-
-            );
-        }
-        return (
-            <div>
-
-            </div>
-        );
-
-    }
-
-
-
-
-
 
     return (
         <div>
             <Header />
-            <div className='container'>
-                <SwitchMethod />
+            <div className='butttonContainer'>
+                <button className="activeButton">Login</button>
+            </div>
+            <div className="loginForm">
+                <LoginForm />
             </div>
         </div>
     )
 }
 
-export default AccountPage
+export default AccountPage 

@@ -212,26 +212,5 @@
         }
       ]
     }
-  ],
-  "accounts": [
-    {
-      "childrens": [
-        {
-          "id": 1,
-          "name" : "oleg"
-        }
-      ],
-      "educators": [
-        {
-          "id": 1,
-          "name": "Администратор",
-          "email": "<EMAIL>",
-          "password": "<PASSWORD>",
-          "role": "admin",
-          "status": "active",
-          "avatar": "assets/images/avatars/avatar_admin.png"
-        }
-      ]
-    }
   ]
 }

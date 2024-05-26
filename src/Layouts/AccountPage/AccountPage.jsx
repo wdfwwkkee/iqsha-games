@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from 'Layouts/LayoutsHome/Header';
 import './AccountPage.css';
-import fs from 'fs';
 const AccountPage = () => {
     const LoginForm = () => {
         return (
@@ -16,6 +15,13 @@ const AccountPage = () => {
     };
 
     const RegisterForm = () => {
+        const [newAccount, setNewAccount] = useState(true)
+        const Name = '';
+        const Email = '';
+        const Password = '';
+        if (newAccount) {
+            
+        }
         return (
             <form>
                 <label for="name">Name</label>

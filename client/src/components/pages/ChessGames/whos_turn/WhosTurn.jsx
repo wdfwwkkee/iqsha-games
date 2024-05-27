@@ -23,6 +23,8 @@ import king_ans from "assets/images/chess_games/king_ans.jpg"
 import GameOver from 'Layouts/GameOver/GameOver';
 import Back from 'Layouts/Back/Back';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import getRandomId from 'utils/getRandomId';
 
 
 
@@ -41,6 +43,16 @@ const WhosTurn = () => {
 
   const navigate = useNavigate()
 
+  async function request(mark, name) {
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/iqsha-games/setData',
+      data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Шахматы", game: { gameName: "Кто так ходит", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+    }).catch(error => {
+      console.error('Ошибка при отправке данных на сервер:', error);
+    });
+  }
+
   useEffect(() => {
     if (!(localStorage.getItem('userName'))) {
       navigate('/iqsha-games/register')
@@ -51,32 +63,35 @@ const WhosTurn = () => {
     switch (value) {
       case "1":
         if (userResponce === rook_ans) {
-          toast("Молодец!");
+          request("Хорошо", value)
           setIsCompleted(true)
           checkForCompleted();
         }
         else {
-          toast("Ответ неправильный");
+          request("Плохо", value)
+          checkForCompleted();
         }
         break;
       case "2":
         if (userResponce === horse_ans) {
-          toast("Молодец!");
+          request("Хорошо", value)
           setIsCompleted(true)
           checkForCompleted();
         }
         else {
-          toast("Ответ неправильный");
+          request("Плохо", value)
+          checkForCompleted();
         }
         break;
       case "3":
         if (userResponce === queen_ans) {
-          toast("Молодец!");
+          request("Хорошо", value)
           setIsCompleted(true)
           checkForCompleted();
         }
         else {
-          toast("Ответ неправильный");
+          request("Плохо", value)
+          checkForCompleted();
         }
     }
   }
@@ -105,7 +120,7 @@ const WhosTurn = () => {
           : (
             <div>
               <div className='title'>
-                найди подходящую картинку
+                Кто так ходит?
               </div>
               <div >
                 <div className="tabber">

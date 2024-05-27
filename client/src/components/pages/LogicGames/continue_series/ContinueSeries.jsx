@@ -27,6 +27,8 @@ import ContinueSeriesLevelTwo from "./Levels/ContinueSeriesLevelTwo";
 import ContinueSeriesLevelThird from "./Levels/ContinueSeriesLevelThird";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
+import axios from "axios";
+import getRandomId from "utils/getRandomId";
 
 
 const draggableOne = (
@@ -88,6 +90,7 @@ const ContinueSeries = () => {
     const answerTwo = 'spike'
     const answerThird = 'cool'
 
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -96,13 +99,23 @@ const ContinueSeries = () => {
         }
     }, [])
 
+
+    async function request(mark, name) {
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/iqsha-games/setData',
+            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Логика", game: { gameName: "Продолжи ряд", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+        }).catch(error => {
+            console.error('Ошибка при отправке данных на сервер:', error);
+        });
+    }
+
     function checkForCompleted() {
         if (Number(value) < 3) {
             setValue(prev => (Number(prev) + 1).toString())
             setIsCompleted(false)
         }
     }
-
     const handleChange = (event, newValue) => {
 
         if (isCompleted) {
@@ -116,40 +129,55 @@ const ContinueSeries = () => {
     function checkAnswer() {
         switch (value) {
             case "1":
-                if (currentAnswer === answerOne) {
-                    toast("Молодец!");
-                    setIsCompleted(true)
-                    setCurrentAnswer("")
-                    setCurrentItem(null)
-                    checkForCompleted();
-                    setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
+                if (currentItem) {
+                    if (currentAnswer === answerOne) {
+                        request("Хорошо", value)
+                        setIsCompleted(true)
+                        setCurrentAnswer("")
+                        setCurrentItem(null)
+                        setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
 
-                } else {
-                    toast("Ответ неправильный");
+                    } else {
+                        request("Плохо", value)
+                        setCurrentAnswer("")
+                        setCurrentItem(null)
+                        setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
+                    }
+                    checkForCompleted();
                 }
                 break;
             case '2':
-                if (currentAnswer === answerTwo) {
-                    toast("Молодец!");
-                    setIsCompleted(true)
-                    setCurrentAnswer("")
-                    setCurrentItem(null)
-                    checkForCompleted()
-                    setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
+                if (currentItem) {
+                    if (currentAnswer === answerTwo) {
+                        request("Хорошо", value)
+                        setIsCompleted(true)
+                        setCurrentAnswer("")
+                        setCurrentItem(null)
+                        setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
 
-                } else {
-                    toast("Ответ неправильный");
+                    } else {
+                        request("Плохо", value)
+                        setCurrentAnswer("")
+                        setCurrentItem(null)
+                        setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
+                    }
+                    checkForCompleted()
                 }
                 break;
             case '3':
-                if (currentAnswer === answerThird) {
-                    toast("Молодец!");
-                    setIsCompleted(true)
-                    setCurrentAnswer("")
-                    setCurrentItem(null)
+                if (currentItem) {
+                    if (currentAnswer === answerThird) {
+                        request("Хорошо", value)
+                        setIsCompleted(true)
+                        setCurrentAnswer("")
+                        setCurrentItem(null)
+                    } else {
+                        request("Плохо", value)
+                        setCurrentAnswer("")
+                        setCurrentItem(null)
+                        setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
+                    }
                     checkForCompleted();
-                } else {
-                    toast("Ответ неправильный");
                 }
                 break;
             default:

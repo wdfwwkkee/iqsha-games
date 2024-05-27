@@ -59,7 +59,7 @@ const TaskGames = () => {
     function checkAnswer() {
 
         if (userAnswer) {
-            if ((userAnswer.toString() === action.toString())) {
+            if (userAnswer.toString() === action.toString()) {
                 setIsCompleted(true)
                 request("Хорошо", value);
             }

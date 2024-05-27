@@ -13,6 +13,8 @@ import ExcessLvlThird from "./excessLevels/ExcessLvlThird";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import getRandomId from "utils/getRandomId";
 
 const WhatExcess = () => {
   const [value, setValue] = useState('1')
@@ -21,6 +23,16 @@ const WhatExcess = () => {
 
 
   const navigate = useNavigate()
+
+  async function request(mark, name) {
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/iqsha-games/setData',
+      data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Логика", game: { gameName: "Что лишнее", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+    }).catch(error => {
+      console.error('Ошибка при отправке данных на сервер:', error);
+    });
+  }
 
   useEffect(() => {
     if (!(localStorage.getItem('userName'))) {
@@ -46,11 +58,12 @@ const WhatExcess = () => {
 
   function checkAnswer(isTrue) {
     if (isTrue) {
-      toast("Молодец!");
+      request("Хорошо", value)
       setIsCompleted(true)
       checkForCompleted();
     } else {
-      toast("Ответ неправильный");
+      request("Плохо", value)
+      checkForCompleted();
     }
   }
 

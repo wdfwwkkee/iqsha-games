@@ -160,8 +160,8 @@ const NumberMathGame = () => {
                     request("Плохо", value)
                     setCurrentItem(null)
                     setCurrentAnswer("")
-                    setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
                     checkForCompleted();
+                    setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
                 }
                 break;
             case '3':
@@ -173,6 +173,7 @@ const NumberMathGame = () => {
                     checkForCompleted();
                 } else {
                     request("Плохо", value)
+                    setIsCompleted(true)
                     setCurrentItem(null)
                     setCurrentAnswer("")
                     checkForCompleted();

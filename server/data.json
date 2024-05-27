@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Серега"
+  },
+  {
+    "id": 2,
+    "name": "Тимофей",
+    "gamesTitles": [
+      {
+        "id": 1,
+        "name": "chess",
+        "games": [
+          {
+            "id": 1,
+            "name": "whosTurn",
+            "result": [
+              {
+                "lvl": 1,
+                "status": "Пройдено",
+                "data": "12.03"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

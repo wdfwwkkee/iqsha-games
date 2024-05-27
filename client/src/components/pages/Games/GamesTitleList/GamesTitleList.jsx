@@ -27,6 +27,7 @@ const GamesTitleList = () => {
 
     return (
         <div>
+            <div style={{textAlign : 'end'}}>Текущий пользователь : {localStorage.getItem('userName')}</div>
             <div className="inner-wrapper">
                 <div className={style.gamesList}>
                     {data.map((item, index) => <GameItem key={item.id} item={item} />)}

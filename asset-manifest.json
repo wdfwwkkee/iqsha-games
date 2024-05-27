@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/iqsha-games/static/css/main.6904b494.css",
-    "main.js": "/iqsha-games/static/js/main.69861df2.js",
+    "main.css": "/iqsha-games/static/css/main.ad79d708.css",
+    "main.js": "/iqsha-games/static/js/main.2be93690.js",
     "static/media/numbers_1.png": "/iqsha-games/static/media/numbers_1.49e331b65f1be0b50ce6.png",
     "static/media/numbers_4.png": "/iqsha-games/static/media/numbers_4.3e3333d5b2894c857d44.png",
     "static/media/candy_1.png": "/iqsha-games/static/media/candy_1.b3698251d5399d4fa719.png",
@@ -17,7 +17,6 @@
     "static/media/queen_moves.jpg": "/iqsha-games/static/media/queen_moves.793f8c7910f6a73d349c.jpg",
     "static/media/horse_moves.jpg": "/iqsha-games/static/media/horse_moves.07acdda72d0f4acfb604.jpg",
     "static/media/cucumber.png": "/iqsha-games/static/media/cucumber.87b9cacd51851ad75537.png",
-    "static/media/5378462__0.jpg": "/iqsha-games/static/media/5378462__0.a1cbd729a53f1b1eb221.jpg",
     "static/media/spike.png": "/iqsha-games/static/media/spike.8f1eb7e68619a568d8ac.png",
     "static/media/num_5.png": "/iqsha-games/static/media/num_5.c4be0881fc37b0e50dfe.png",
     "static/media/delph.png": "/iqsha-games/static/media/delph.e6b9ff1f2739f127f4fa.png",
@@ -56,11 +55,11 @@
     "static/media/gold.png": "/iqsha-games/static/media/gold.0897e0a0bf7801e66671.png",
     "static/media/emerald.png": "/iqsha-games/static/media/emerald.1f97d3dd9a6673e08795.png",
     "index.html": "/iqsha-games/index.html",
-    "main.6904b494.css.map": "/iqsha-games/static/css/main.6904b494.css.map",
-    "main.69861df2.js.map": "/iqsha-games/static/js/main.69861df2.js.map"
+    "main.ad79d708.css.map": "/iqsha-games/static/css/main.ad79d708.css.map",
+    "main.2be93690.js.map": "/iqsha-games/static/js/main.2be93690.js.map"
   },
   "entrypoints": [
-    "static/css/main.6904b494.css",
-    "static/js/main.69861df2.js"
+    "static/css/main.ad79d708.css",
+    "static/js/main.2be93690.js"
   ]
 }

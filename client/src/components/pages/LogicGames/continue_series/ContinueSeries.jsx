@@ -159,7 +159,7 @@ const ContinueSeries = () => {
                         request("Плохо", value)
                         setCurrentAnswer("")
                         setCurrentItem(null)
-                        setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
+                        setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
                     }
                     checkForCompleted()
                 }

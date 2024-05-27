@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
+import axios from "axios";
+import getRandomId from "utils/getRandomId";
 
 const TaskGames = () => {
 
@@ -43,23 +45,43 @@ const TaskGames = () => {
         }
     };
 
-    function checkAnswer() {
-        if (userAnswer.toString() === action.toString()) {
-            toast("Молодец!");
-            setIsCompleted(true)
-            if (Number(value) < 3) {
-                setValue(prev => (Number(prev) + 1).toString())
-                setArray([...array].sort(() => Math.random() - 0.5))
-                setIsCompleted(false)
-                setFirstSym(array[Math.floor(Math.random() * array.length)])
-                setSecondSym(array[Math.floor(Math.random() * array.length)])
-                setAction(actions[Math.floor(Math.random() * actions.length)])
-                setUserAnswer("")
-            }
+    async function request(mark, name) {
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/iqsha-games/setData',
+            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Математика", game: { gameName: "Задачи", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+        }).catch(error => {
+            console.error('Ошибка при отправке данных на сервер:', error);
+        });
+    }
 
-        } else {
-            toast("Ответ неправильный");
+
+    function checkAnswer() {
+
+        if (userAnswer) {
+            if ((userAnswer.toString() === action.toString())) {
+                setIsCompleted(true)
+                request("Хорошо", value);
+            }
+            else {
+                request("Плохо", value);
+            }
         }
+        else {
+            toast("Сначала реши пример!");
+        }
+
+        if (Number(value) < 3 && userAnswer !== "") {
+            setValue(prev => (Number(prev) + 1).toString())
+            setArray([...array].sort(() => Math.random() - 0.5))
+            setIsCompleted(false)
+            setFirstSym(array[Math.floor(Math.random() * array.length)])
+            setSecondSym(array[Math.floor(Math.random() * array.length)])
+            setAction(actions[Math.floor(Math.random() * actions.length)])
+            setUserAnswer("")
+
+        }
+
     }
 
     useEffect(() => {
@@ -132,7 +154,7 @@ const TaskGames = () => {
                                             </TabPanel>
                                         </TabContext>
                                     </Box>
-                                    <button onClick={() => checkAnswer(array)}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
+                                    <button onClick={() => checkAnswer()}>{isOver ? <Link style={{ color: 'white', textDecoration: 'none' }} to={'/'}>Закончить</Link> : "Проверить ответ"}</button>
                                     <ToastContainer style={{ fontSize: 17 }} />
                                 </div>
                             </div>

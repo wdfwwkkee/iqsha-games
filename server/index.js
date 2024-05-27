@@ -11,14 +11,19 @@ app.use(bodyParser.json());
 
 const urlencodedParser = express.urlencoded({ extended: false });
 
-app.post("/iqsha-games/api", urlencodedParser, (req, res) => {
+app.post("/iqsha-games/newUser", urlencodedParser, (req, res) => {
   const userData = req.body;
   var file = JSON.parse(fs.readFileSync("data.json", "utf-8"));
-  userData.id = Date.now()
-  file.push(userData)
-  fs.writeFileSync('data.json', JSON.stringify(file, null, 2));
+  userData.id = Date.now();
+  file.push(userData);
+  fs.writeFileSync("data.json", JSON.stringify(file, null, 2));
 
   res.send(userData);
+});
+
+app.get("/iqsha-games/readUsers", urlencodedParser, (req, res) => {
+  var file = JSON.parse(fs.readFileSync("data.json", "utf-8"));
+  res.send(file);
 });
 
 http.listen(PORT, () => {

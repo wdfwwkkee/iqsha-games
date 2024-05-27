@@ -12,6 +12,8 @@ import OneWordLevelThird from "./Levels/OneWordLevelThird";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import getRandomId from "utils/getRandomId";
 
 
 const titles = ['Это круглое, красное и сочное', 'Это белое и маленькое', 'Это зеленое и медленное']
@@ -35,6 +37,16 @@ const OneWord = () => {
                 break;
         }
     }, [value])
+
+    async function request(mark, name) {
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/iqsha-games/setData',
+            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Логика", game: { gameName: "Одним словом", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+        }).catch(error => {
+            console.error('Ошибка при отправке данных на сервер:', error);
+        });
+    }
 
     const handleChange = (event, newValue) => {
 
@@ -64,12 +76,13 @@ const OneWord = () => {
 
     function checkAnswer(isTrue) {
         if (isTrue) {
-            toast("Молодец!");
+            request("Хорошо", value)
             setIsCompleted(true)
             checkForCompleted();
 
         } else {
-            toast("Ответ неправильный");
+            request("Плохо", value)
+            checkForCompleted();
         }
     }
 

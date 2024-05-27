@@ -32,6 +32,8 @@ import Image6 from 'assets/images/math_games/number/num_5.png'
 import Image7 from 'assets/images/math_games/number/quan_2.png'
 import Image8 from 'assets/images/math_games/number/numbers_6.png'
 import Image9 from 'assets/images/math_games/number/num_6.png'
+import getRandomId from 'utils/getRandomId';
+import axios from 'axios';
 
 //LevelOne
 const draggableOne = (
@@ -108,8 +110,6 @@ const NumberMathGame = () => {
         }
     }
 
-
-
     const handleChange = (event, newValue) => {
         if (isCompleted) {
             setValue(newValue);
@@ -119,25 +119,37 @@ const NumberMathGame = () => {
         }
     };
 
-
+    async function request(mark, name) {
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/iqsha-games/setData',
+            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Математика", game: { gameName: "Число.Цифра.Количество", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+        }).catch(error => {
+            console.error('Ошибка при отправке данных на сервер:', error);
+        });
+    }
 
     function checkAnswer() {
         switch (value) {
             case '1':
                 if (Number(currentAnswer) === answerOne) {
-                    toast("Молодец!");
+                    request("Хорошо", value)
                     setIsCompleted(true)
                     setCurrentAnswer("")
                     setCurrentItem(null)
                     checkForCompleted();
                     setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
                 } else {
-                    toast("Ответ неправильный");
+                    request("Плохо", value)
+                    setCurrentItem(null)
+                    checkForCompleted();
+                    setCurrentAnswer("")
+                    setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
                 }
                 break;
             case '2':
                 if (Number(currentAnswer) === answerTwo) {
-                    toast("Молодец!");
+                    request("Хорошо", value)
                     setIsCompleted(true)
                     setCurrentAnswer("")
                     setCurrentItem(null)
@@ -145,18 +157,25 @@ const NumberMathGame = () => {
                     setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
 
                 } else {
-                    toast("Ответ неправильный");
+                    request("Плохо", value)
+                    setCurrentItem(null)
+                    setCurrentAnswer("")
+                    setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
+                    checkForCompleted();
                 }
                 break;
             case '3':
                 if (currentAnswer === answerThird) {
-                    toast("Молодец!");
+                    request("Хорошо", value)
                     setIsCompleted(true)
                     setCurrentAnswer("")
                     setCurrentItem(null)
                     checkForCompleted();
                 } else {
-                    toast("Ответ неправильный");
+                    request("Плохо", value)
+                    setCurrentItem(null)
+                    setCurrentAnswer("")
+                    checkForCompleted();
                 }
                 break;
             default:

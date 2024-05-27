@@ -1,5 +1,7 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import getRandomId from 'utils/getRandomId'
 
 const Register = () => {
 
@@ -7,10 +9,25 @@ const Register = () => {
     const navigate = useNavigate()
     const [name, setName] = useState('')
 
+
+    async function request(mark, name) {
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/iqsha-games/setData',
+            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: [] }
+        }).then(response => {
+            console.log('Данные успешно отправлены на сервер.');
+            console.log(response);
+        })
+            .catch(error => {
+                console.error('Ошибка при отправке данных на сервер:', error);
+            });
+    }
     function auth() {
         if (name.length > 5) {
             localStorage.setItem('userName', name)
             navigate('/iqsha-games')
+            request();
         }
         else {
             alert("Пожалуйста введите ваше полное ФИО")

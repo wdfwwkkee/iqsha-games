@@ -13,6 +13,10 @@ import GenerateLvl from "./GeratorLvls/GenerateLvl";
 import { Link, useNavigate } from "react-router-dom";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
+import axios from "axios";
+import getRandomId from "utils/getRandomId";
+
+const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const NumberSeries = () => {
 
@@ -25,6 +29,18 @@ const NumberSeries = () => {
   );
 
   const navigate = useNavigate()
+
+
+  async function request(mark, name) {
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/iqsha-games/setData',
+      data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Математика", game: { gameName: "Продолжи ряд", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+    }).catch(error => {
+      console.error('Ошибка при отправке данных на сервер:', error);
+    });
+  }
+
 
   useEffect(() => {
     if (!(localStorage.getItem('userName'))) {
@@ -41,6 +57,7 @@ const NumberSeries = () => {
       toast("Сначала реши пример!");
     }
   };
+
   useEffect(() => {
     if (Number(value) === 3 && isCompleted) {
       toast("Молодец все уровни пройдены")
@@ -48,18 +65,19 @@ const NumberSeries = () => {
     }
   }, [isCompleted, value])
 
+
   function checkAnswer(array) {
-    const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    setIsCompleted(true)
     if (array.toString() === answer.toString()) {
-      toast("Молодец!");
-      setIsCompleted(true)
-      if (Number(value) < 3) {
-        setValue(prev => (Number(prev) + 1).toString())
-        setArray([...array].sort(() => Math.random() - 0.5))
-        setIsCompleted(false)
-      }
+      request("Хорошо", value)
+
     } else {
-      toast("Ответ неправильный");
+      request("Плохо", value)
+    }
+    if (Number(value) < 3) {
+      setValue(prev => (Number(prev) + 1).toString())
+      setArray([...array].sort(() => Math.random() - 0.5))
+      setIsCompleted(false)
     }
   }
   return (

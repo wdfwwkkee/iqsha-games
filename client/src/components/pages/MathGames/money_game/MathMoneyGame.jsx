@@ -12,6 +12,8 @@ import Confetti from 'components/UI/Confetti';
 import GameOver from 'Layouts/GameOver/GameOver';
 import Back from 'Layouts/Back/Back';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import getRandomId from 'utils/getRandomId';
 
 
 const MathMoneyGame = () => {
@@ -34,6 +36,17 @@ const MathMoneyGame = () => {
             toast("Сначала реши пример!");
         }
     };
+
+    async function request(mark, name) {
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/iqsha-games/setData',
+            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Математика", game: { gameName: "Деньги", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
+        }).catch(error => {
+            console.error('Ошибка при отправке данных на сервер:', error);
+        });
+    }
+
     function checkForCompleted() {
         setIsCompleted(true)
 
@@ -43,15 +56,33 @@ const MathMoneyGame = () => {
         }
     }
 
-    function checkAnswer() {
+    function checkAnswer(number) {
         switch (value) {
             case "1":
+                if (number === 2) {
+                    request("Хорошо", value)
+                }
+                else {
+                    request("Плохо", value)
+                }
                 checkForCompleted();
                 break
             case "2":
+                if (number === 4) {
+                    request("Хорошо", value)
+                }
+                else {
+                    request("Плохо", value)
+                }
                 checkForCompleted();
                 break
             case "3":
+                if (number === 9) {
+                    request("Хорошо", value)
+                }
+                else {
+                    request("Плохо", value)
+                }
                 checkForCompleted();
                 break
             default:

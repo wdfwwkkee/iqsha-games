@@ -11,12 +11,41 @@ app.use(bodyParser.json());
 
 const urlencodedParser = express.urlencoded({ extended: false });
 
-app.post("/iqsha-games/newUser", urlencodedParser, (req, res) => {
+app.post("/iqsha-games/setData", urlencodedParser, (req, res) => {
   const userData = req.body;
   var file = JSON.parse(fs.readFileSync("data.json", "utf-8"));
-  userData.id = Date.now();
-  file.push(userData);
-  fs.writeFileSync("data.json", JSON.stringify(file, null, 2));
+  const userResults = userData.results;
+
+  
+
+  console.log(userResults);
+
+  console.log(userData);
+
+  // const updatedData = jsonData.map((user) => {
+  //   if (user.id === userIdToUpdate) {
+  //     return {
+  //       ...user,
+  //       level: newLevelValue,
+  //     };
+  //   }
+  //   return user;
+  // });
+
+  const existIndex = file.findIndex(
+    (user) => user.userName === userData.userName
+  );
+  console.log(existIndex);
+
+  if (existIndex === -1) {
+    file.push(userData);
+    fs.writeFileSync("data.json", JSON.stringify(file, null, 2));
+  } else {
+    const copy = file[existIndex];
+    const array = copy.results;
+    array.push(userResults);
+    fs.writeFileSync("data.json", JSON.stringify(file, null, 2));
+  }
 
   res.send(userData);
 });

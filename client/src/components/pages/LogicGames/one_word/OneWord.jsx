@@ -60,6 +60,7 @@ const OneWord = () => {
         }
     };
     function checkForCompleted() {
+        setIsCompleted(true)
         if (Number(value) < 3) {
             setValue(prev => (Number(prev) + 1).toString())
             setIsCompleted(false)
@@ -79,7 +80,6 @@ const OneWord = () => {
             request("Хорошо", value)
             setIsCompleted(true)
             checkForCompleted();
-
         } else {
             request("Плохо", value)
             checkForCompleted();

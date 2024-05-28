@@ -13,37 +13,26 @@ const Register = () => {
     const [name, setName] = useState('')
 
 
-    const usersCollectionRef = collection(db, "asd")
 
 
 
-    async function request(mark, name) {
-        axios({
-            method: 'post',
-            url: 'http://localhost:5000/iqsha-games/setData',
-            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: [] }
-        }).then(response => {
-            console.log('Данные успешно отправлены на сервер.');
-            console.log(response);
-        })
-            .catch(error => {
-                console.error('Ошибка при отправке данных на сервер:', error);
-            });
-    }
+
     async function auth() {
         try {
-
-            await setDoc(doc(db, "data", name), {
-                userName: name,
-                result: [],
-            });
+            const docRef = doc(db, "data", name);
+            const docSnap = await getDoc(docRef);
+            if (!(docSnap.exists())) {
+                await updateDoc(docRef, {
+                    userName: name,
+                    result: [],
+                });
+            }
         } catch (error) {
             console.log(error)
         }
         if (name.length > 5) {
             localStorage.setItem('userName', name)
             navigate('/iqsha-games')
-            request();
         }
         else {
             alert("Пожалуйста введите ваше полное ФИО")

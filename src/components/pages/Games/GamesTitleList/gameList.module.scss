@@ -3,3 +3,13 @@
   grid-template-columns: repeat(12, 1fr);
   gap: 30px;
 }
+
+.exitBtn {
+  background: transparent;
+  border: none;
+  padding-inline: 15px;
+  border-radius: 8px;
+  &:hover {
+    border: 1px solid black;
+  }
+}

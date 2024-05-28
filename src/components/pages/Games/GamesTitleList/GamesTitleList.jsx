@@ -3,9 +3,11 @@ import { iqshaService } from 'service/iqsha.service'
 import { useQuery } from "@tanstack/react-query";
 import GameItem from './GameItem/GameItem';
 import style from './gameList.module.scss'
+import { useNavigate } from 'react-router-dom';
 
 
 const GamesTitleList = () => {
+    const navigate = useNavigate();
 
     const { data, isLoading, isError } = useQuery({
         queryKey: ["data"],
@@ -25,9 +27,15 @@ const GamesTitleList = () => {
         )
     }
 
+
+    function logout() {
+        localStorage.removeItem('userName')
+        navigate('/iqsha-games/register')
+    }
+
     return (
         <div>
-            <div style={{textAlign : 'end'}}>Текущий пользователь : {localStorage.getItem('userName')}</div>
+            <div style={{ display: 'flex', gap: 10, alignItems: 'stretch', justifyContent: 'center', textAlign: 'center', padding: '15px 0px' }}>Текущий пользователь : {localStorage.getItem('userName')} <button onClick={logout} className={style.exitBtn}>Выйти</button> </div>
             <div className="inner-wrapper">
                 <div className={style.gamesList}>
                     {data.map((item, index) => <GameItem key={item.id} item={item} />)}

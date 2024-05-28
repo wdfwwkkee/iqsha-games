@@ -28,7 +28,11 @@ const Register = () => {
                 });
             }
         } catch (error) {
-            console.log(error)
+            const docRef = doc(db, "data", name);
+            await setDoc(docRef, {
+                userName: name,
+                result: [],
+            });
         }
         if (name.length > 5) {
             localStorage.setItem('userName', name)

@@ -92,6 +92,7 @@ const WhosTurn = () => {
         else {
           request("Плохо", value)
           checkForCompleted();
+          setIsCompleted(true)
         }
     }
   }

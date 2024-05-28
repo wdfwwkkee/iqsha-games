@@ -29,6 +29,8 @@ import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
 import axios from "axios";
 import getRandomId from "utils/getRandomId";
+import { db } from "utils/firestore";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 
 
 const draggableOne = (
@@ -100,14 +102,14 @@ const ContinueSeries = () => {
     }, [])
 
 
-    async function request(mark, name) {
-        axios({
-            method: 'post',
-            url: 'http://localhost:5000/iqsha-games/setData',
-            data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Логика", game: { gameName: "Продолжи ряд", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
-        }).catch(error => {
-            console.error('Ошибка при отправке данных на сервер:', error);
-        });
+    async function request(mark, lvlNumber) {
+        try {
+            await updateDoc(doc(db, "data", localStorage.getItem('userName')), {
+                result: arrayUnion({ category: "Логика", game: { id: getRandomId(), gameName: "Продолжи ряд", lvl: Number(lvlNumber), date: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}` }, result: mark })
+            });
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     function checkForCompleted() {

@@ -13,7 +13,8 @@ import ExcessLvlThird from "./excessLevels/ExcessLvlThird";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { db } from "utils/firestore";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import getRandomId from "utils/getRandomId";
 
 const WhatExcess = () => {
@@ -24,14 +25,14 @@ const WhatExcess = () => {
 
   const navigate = useNavigate()
 
-  async function request(mark, name) {
-    axios({
-      method: 'post',
-      url: 'http://localhost:5000/iqsha-games/setData',
-      data: { id: getRandomId(), userName: localStorage.getItem('userName'), results: { category: "Логика", game: { gameName: "Что лишнее", lvl: { lvlNumber: Number(name), date: `Год - ${new Date().getFullYear()}, Число - ${new Date().getDate()}, Час - ${new Date().getHours()}; Минута - ${new Date().getMinutes()}`, result: mark } } } }
-    }).catch(error => {
-      console.error('Ошибка при отправке данных на сервер:', error);
-    });
+  async function request(mark, lvlNumber) {
+    try {
+      await updateDoc(doc(db, "data", localStorage.getItem('userName')), {
+        result: arrayUnion({ category: "Логика", game: { id : getRandomId(), gameName: "Что лишнее?", lvl: Number(lvlNumber), date: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}` }, result: mark })
+      });
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -41,6 +42,7 @@ const WhatExcess = () => {
   }, [])
 
   function checkForCompleted() {
+    setIsCompleted(true)
     if (Number(value) < 3) {
       setValue(prev => (Number(prev) + 1).toString())
       setIsCompleted(false)
@@ -59,7 +61,6 @@ const WhatExcess = () => {
   function checkAnswer(isTrue) {
     if (isTrue) {
       request("Хорошо", value)
-      setIsCompleted(true)
       checkForCompleted();
     } else {
       request("Плохо", value)

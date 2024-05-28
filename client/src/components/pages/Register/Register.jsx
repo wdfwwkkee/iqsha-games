@@ -2,12 +2,19 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import getRandomId from 'utils/getRandomId'
+import { collection, doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { db } from 'utils/firestore'
+
 
 const Register = () => {
 
 
     const navigate = useNavigate()
     const [name, setName] = useState('')
+
+
+    const usersCollectionRef = collection(db, "asd")
+
 
 
     async function request(mark, name) {
@@ -23,7 +30,16 @@ const Register = () => {
                 console.error('Ошибка при отправке данных на сервер:', error);
             });
     }
-    function auth() {
+    async function auth() {
+        try {
+
+            await setDoc(doc(db, "data", name), {
+                userName: name,
+                result: [],
+            });
+        } catch (error) {
+            console.log(error)
+        }
         if (name.length > 5) {
             localStorage.setItem('userName', name)
             navigate('/iqsha-games')

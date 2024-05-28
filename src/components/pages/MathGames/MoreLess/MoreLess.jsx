@@ -62,6 +62,7 @@ const MoreLess = () => {
 
             } else {
                 request("Плохо", value)
+                setIsCompleted(true)
             }
             if (Number(value) < 3) {
                 setValue(prev => (Number(prev) + 1).toString())

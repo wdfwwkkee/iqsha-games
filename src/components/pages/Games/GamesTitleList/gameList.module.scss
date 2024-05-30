@@ -17,3 +17,20 @@
     border: 1px solid black;
   }
 }
+
+@media (max-width: 1200px) {
+  .gamesList {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 30px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .gamesList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+}

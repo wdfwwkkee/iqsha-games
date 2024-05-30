@@ -19,31 +19,35 @@ const Register = () => {
 
     async function auth() {
         if (name !== "admin") {
-
-            try {
-                const docRef = doc(db, "data", name);
-                const docSnap = await getDoc(docRef);
-                if (!(docSnap.exists())) {
-                    await updateDoc(docRef, {
+            if (name.length >= 6) {
+                try {
+                    const docRef = doc(db, "data", name);
+                    const docSnap = await getDoc(docRef);
+                    if (!(docSnap.exists())) {
+                        await updateDoc(docRef, {
+                            userName: name,
+                            result: [],
+                        });
+                    }
+                } catch (error) {
+                    const docRef = doc(db, "data", name);
+                    await setDoc(docRef, {
                         userName: name,
                         result: [],
                     });
                 }
-            } catch (error) {
-                const docRef = doc(db, "data", name);
-                await setDoc(docRef, {
-                    userName: name,
-                    result: [],
-                });
+                localStorage.setItem('userName', name)
+                navigate('/iqsha-games')
             }
-        }
-        if (name.length >= 6) {
+            else {
+                alert("Введите полное ФИО")
+            }
+
+        } else {
             localStorage.setItem('userName', name)
             navigate('/iqsha-games')
         }
-        else {
-            alert("Пожалуйста введите ваше полное ФИО")
-        }
+
     }
 
     return (

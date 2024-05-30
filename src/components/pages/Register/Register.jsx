@@ -37,7 +37,7 @@ const Register = () => {
                 });
             }
         }
-        if (name.length >= 5) {
+        if (name.length >= 6) {
             localStorage.setItem('userName', name)
             navigate('/iqsha-games')
         }

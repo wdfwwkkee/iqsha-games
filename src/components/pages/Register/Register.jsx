@@ -18,23 +18,26 @@ const Register = () => {
 
 
     async function auth() {
-        try {
-            const docRef = doc(db, "data", name);
-            const docSnap = await getDoc(docRef);
-            if (!(docSnap.exists())) {
-                await updateDoc(docRef, {
+        if (name !== "admin") {
+
+            try {
+                const docRef = doc(db, "data", name);
+                const docSnap = await getDoc(docRef);
+                if (!(docSnap.exists())) {
+                    await updateDoc(docRef, {
+                        userName: name,
+                        result: [],
+                    });
+                }
+            } catch (error) {
+                const docRef = doc(db, "data", name);
+                await setDoc(docRef, {
                     userName: name,
                     result: [],
                 });
             }
-        } catch (error) {
-            const docRef = doc(db, "data", name);
-            await setDoc(docRef, {
-                userName: name,
-                result: [],
-            });
         }
-        if (name.length > 5) {
+        if (name.length >= 5) {
             localStorage.setItem('userName', name)
             navigate('/iqsha-games')
         }

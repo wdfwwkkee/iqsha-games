@@ -179,7 +179,6 @@ const ContinueSeries = () => {
                         setCurrentItem(null)
                         setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
                     }
-                    checkForCompleted();
                 }
                 break;
             default:

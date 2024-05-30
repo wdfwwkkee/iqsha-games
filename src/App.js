@@ -21,6 +21,7 @@ import ContinueSeries from 'components/pages/LogicGames/continue_series/Continue
 import OneWord from 'components/pages/LogicGames/one_word/OneWord';
 import Contacts from 'components/pages/Contact/Contacts';
 import Register from 'components/pages/Register/Register';
+import Report from 'components/pages/Report/Report';
 
 function App() {
   return (
@@ -54,6 +55,8 @@ function App() {
 
           {/* Other */}
           <Route element={<Register />} path="/iqsha-games/register" />
+          <Route element={<Report />} path="/iqsha-games/report" />
+
           <Route path="/*" element={<div>NotFound</div>} />
 
           

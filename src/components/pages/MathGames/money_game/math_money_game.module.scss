@@ -16,7 +16,7 @@
 }
 
 .title {
-    margin-bottom: 70px;
+  margin-bottom: 70px;
 }
 
 .answersList {
@@ -64,5 +64,11 @@
       position: absolute;
       top: 0;
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .bag {
+    width: 500px;
   }
 }

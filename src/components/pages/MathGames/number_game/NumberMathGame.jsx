@@ -33,7 +33,6 @@ import Image7 from 'assets/images/math_games/number/quan_2.png'
 import Image8 from 'assets/images/math_games/number/numbers_6.png'
 import Image9 from 'assets/images/math_games/number/num_6.png'
 import getRandomId from 'utils/getRandomId';
-import axios from 'axios';
 import { db } from 'utils/firestore';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 

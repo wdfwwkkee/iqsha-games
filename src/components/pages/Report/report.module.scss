@@ -1,33 +1,46 @@
-
-
 .table {
-    padding-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 
-    .column {
-        font-size: 12px;
-        grid-column: span 2;
-        border: 1px solid black;
-        .name {
-            padding: 0px 50px;
-            border-bottom: 1px solid black;
-        }
-
-        .item {
-            border: 1px solid black;
-            padding: 0 20px;
-            
-
-        }
-
-
-        .gameName {
-            
-            width: 200px;
-        }
-
-
-
+  .column {
+    font-size: 12px;
+    grid-column: span 2;
+    font-size: 18px;
+    border: 1px solid black;
+    .name {
+      padding: 0px 50px;
+      border-bottom: 1px solid black;
     }
+
+    .item {
+      border: 1px solid black;
+      padding: 0 20px;
+    }
+
+    .gameName {
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .column {
+    font-size: 20px !important;
+    grid-column: span 4 !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .column {
+    font-size: 20px !important;
+    grid-column: span 6 !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .column {
+    font-size: 20px !important;
+    grid-column: span 12 !important;
+  }
 }

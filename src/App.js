@@ -19,7 +19,6 @@ import WhosTurn from 'components/pages/ChessGames/whos_turn/WhosTurn';
 import WhatExcess from 'components/pages/LogicGames/what_excess/WhatExcess';
 import ContinueSeries from 'components/pages/LogicGames/continue_series/ContinueSeries';
 import OneWord from 'components/pages/LogicGames/one_word/OneWord';
-import Contacts from 'components/pages/Contact/Contacts';
 import Register from 'components/pages/Register/Register';
 import Report from 'components/pages/Report/Report';
 
@@ -42,7 +41,6 @@ function App() {
           <Route element={<TaskGames />} path="/iqsha-games/games/math-games/tasks" />         
           <Route element={<NumberMathGame />} path="/iqsha-games/games/math-games/number" />
           <Route element={<MathMoneyGame />} path="/iqsha-games/games/math-games/math_game_money" />
-          <Route element={<Contacts />} path="/iqsha-games/contacts" />
 
           {/* LogicGames */}
           <Route element={<WhatExcess />} path="/iqsha-games/games/logic-games/what_excess"/>

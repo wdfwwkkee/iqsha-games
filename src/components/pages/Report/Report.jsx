@@ -1,13 +1,13 @@
-import { collection, doc, getDoc, getDocs, query } from 'firebase/firestore';
+import { collection, getDocs, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { db } from 'utils/firestore';
 import style from './report.module.scss'
 import getRandomId from 'utils/getRandomId';
+import Back from 'Layouts/Back/Back';
 
 const Report = () => {
     const [data, setData] = useState([])
-
-
+    const date = `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}`
 
     useEffect(() => {
         async function readData() {
@@ -21,13 +21,10 @@ const Report = () => {
 
     }, [])
 
-
-    const date = `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}`
-
     if (localStorage.getItem('userName') === "admin") {
         return (
             <div>
-                <div style={{textAlign : 'center', paddingTop : '50px'}}>Отчет на {date}</div>
+                <div style={{ textAlign: 'center', paddingTop: '50px' }}>Отчет на {date}</div>
                 <table className={style.table}>
                     {data.map((el,) => (
                         <div key={getRandomId()} className={style.column}>
@@ -54,6 +51,7 @@ const Report = () => {
 
                     ))}
                 </table>
+                <Back />
             </div>
         )
     } else {
@@ -61,7 +59,6 @@ const Report = () => {
             <div>You not have access to visit this page</div>
         )
     }
-
 
 }
 

@@ -13,7 +13,6 @@ import GenerateLvl from "./GeratorLvls/GenerateLvl";
 import { Link, useNavigate } from "react-router-dom";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
-import axios from "axios";
 import getRandomId from "utils/getRandomId";
 import { db } from "utils/firestore";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
@@ -114,9 +113,6 @@ const NumberSeries = () => {
         }
         <ToastContainer style={{ fontSize: 17 }} />
       </main>
-
-
-
     </div >
   );
 }

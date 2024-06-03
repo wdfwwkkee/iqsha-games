@@ -1,8 +1,6 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import getRandomId from 'utils/getRandomId'
-import { collection, doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from 'utils/firestore'
 
 

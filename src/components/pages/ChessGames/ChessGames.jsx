@@ -28,7 +28,7 @@ const ChessGames = () => {
     <div>
       <div className="inner-wrapper">
         <div className={style.list}>
-          {data.games.map((item, index) => <Game key={item.id} item={item} />)}
+          {data.games.map(item => <Game key={item.id} item={item} />)}
         </div>
         <Back />
       </div>

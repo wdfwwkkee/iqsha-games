@@ -9,7 +9,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
-import axios from "axios";
 import getRandomId from "utils/getRandomId";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "utils/firestore";
@@ -34,7 +33,7 @@ const TaskGames = () => {
         if (!(localStorage.getItem('userName'))) {
             navigate('/iqsha-games/register')
         }
-    }, [])
+    }, [navigate])
 
     const handleChange = (event, newValue) => {
 

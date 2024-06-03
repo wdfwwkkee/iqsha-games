@@ -27,7 +27,6 @@ import ContinueSeriesLevelTwo from "./Levels/ContinueSeriesLevelTwo";
 import ContinueSeriesLevelThird from "./Levels/ContinueSeriesLevelThird";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
-import axios from "axios";
 import getRandomId from "utils/getRandomId";
 import { db } from "utils/firestore";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";

@@ -12,7 +12,6 @@ import Confetti from 'components/UI/Confetti';
 import GameOver from 'Layouts/GameOver/GameOver';
 import Back from 'Layouts/Back/Back';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import getRandomId from 'utils/getRandomId';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from 'utils/firestore';

@@ -9,7 +9,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import GameOver from "Layouts/GameOver/GameOver";
 import Back from "Layouts/Back/Back";
-import axios from "axios";
 import getRandomId from "utils/getRandomId";
 import { db } from "utils/firestore";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
@@ -37,7 +36,7 @@ const MoreLess = () => {
     async function request(mark, lvlNumber) {
         try {
             await updateDoc(doc(db, "data", localStorage.getItem('userName')), {
-                result: arrayUnion({ category: "Математика", game: { id : getRandomId(), gameName: "Больше меньше", lvl: Number(lvlNumber), date: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}` }, result: mark })
+                result: arrayUnion({ category: "Математика", game: { id: getRandomId(), gameName: "Больше меньше", lvl: Number(lvlNumber), date: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}` }, result: mark })
             });
         } catch (error) {
             console.log(error)

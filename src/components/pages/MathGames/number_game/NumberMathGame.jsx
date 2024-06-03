@@ -123,7 +123,7 @@ const NumberMathGame = () => {
     async function request(mark, lvlNumber) {
         try {
             await updateDoc(doc(db, "data", localStorage.getItem('userName')), {
-                result: arrayUnion({ category: "Математика", game: { id : getRandomId(), gameName: "Число.Цифра.Количество", lvl: Number(lvlNumber), date: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}` }, result: mark })
+                result: arrayUnion({ category: "Математика", game: { id: getRandomId(), gameName: "Число.Цифра.Количество", lvl: Number(lvlNumber), date: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}` }, result: mark })
             });
         } catch (error) {
             console.log(error)

@@ -23,7 +23,6 @@ import king_ans from "assets/images/chess_games/king_ans.jpg"
 import GameOver from 'Layouts/GameOver/GameOver';
 import Back from 'Layouts/Back/Back';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import getRandomId from 'utils/getRandomId';
 import { db } from 'utils/firestore';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';

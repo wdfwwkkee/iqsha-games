@@ -1,14 +1,19 @@
-import axios from "axios"
+import { QuerySnapshot, collection, doc, getDoc, getDocs, query } from 'firebase/firestore';
+import { useState } from 'react';
+import { db } from 'utils/firestore';
 
 
 export const iqshaService = {
     
     getAllGames : async() => {
-        const responce = await axios.get("https://my-json-server.typicode.com/wdfwwkkee/iqsha-games/categories")
-        return responce.data;
+        const q = query(collection(db, "data.sourcePic"));
+        const querySnapshot = await getDocs(q);
+        return querySnapshot.docs[0].data().nameCategory;
     },
     getGameById : async(id) => {
-        const responce = await axios.get(`https://my-json-server.typicode.com/wdfwwkkee/iqsha-games/categories?id=${id}`)
-        return responce.data[0];
+        const q = query(collection(db, "data.sourcePic"));
+        const querySnapshot = await getDocs(q);
+        const array =  querySnapshot.docs[0].data().nameCategory;
+        return array[id-1]
     }
 }

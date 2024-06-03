@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/iqsha-games/static/css/main.2ad3e1e9.css",
-    "main.js": "/iqsha-games/static/js/main.33f37453.js",
+    "main.css": "/iqsha-games/static/css/main.5af1df55.css",
+    "main.js": "/iqsha-games/static/js/main.8ebdc08a.js",
     "static/media/numbers_1.png": "/iqsha-games/static/media/numbers_1.49e331b65f1be0b50ce6.png",
     "static/media/numbers_4.png": "/iqsha-games/static/media/numbers_4.3e3333d5b2894c857d44.png",
     "static/media/candy_1.png": "/iqsha-games/static/media/candy_1.b3698251d5399d4fa719.png",
@@ -55,11 +55,11 @@
     "static/media/gold.png": "/iqsha-games/static/media/gold.0897e0a0bf7801e66671.png",
     "static/media/emerald.png": "/iqsha-games/static/media/emerald.1f97d3dd9a6673e08795.png",
     "index.html": "/iqsha-games/index.html",
-    "main.2ad3e1e9.css.map": "/iqsha-games/static/css/main.2ad3e1e9.css.map",
-    "main.33f37453.js.map": "/iqsha-games/static/js/main.33f37453.js.map"
+    "main.5af1df55.css.map": "/iqsha-games/static/css/main.5af1df55.css.map",
+    "main.8ebdc08a.js.map": "/iqsha-games/static/js/main.8ebdc08a.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ad3e1e9.css",
-    "static/js/main.33f37453.js"
+    "static/css/main.5af1df55.css",
+    "static/js/main.8ebdc08a.js"
   ]
 }

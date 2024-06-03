@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './game-item.module.scss'
 import { Link } from 'react-router-dom';
-import AccountPage from 'Layouts/AccountPage/AccountPage.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const GameItem = ({ item }) => {

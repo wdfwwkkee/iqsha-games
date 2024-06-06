@@ -1,7 +1,7 @@
 module.exports = {
-    HOST: 'localhost',
-    USER: 'your_username',
-    PASSWORD: 'your_password',
-    DB: 'your_dbname',
+    HOST: '127.0.0.1',
+    USER: 'root',
+    PASSWORD: '',
+    DB: 'results',
     CHARSET: 'UTF8MB4_GENERAL_CI' // optional, for character set and collation
   };

@@ -6,6 +6,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 import ExcessLvlOne from "./excessLevels/ExcessLvlOne";
 import ExcessLvlTwo from "./excessLevels/ExcessLvlTwo";
@@ -35,6 +36,25 @@ const WhatExcess = () => {
     }
   }
 
+  async function sendDataToServer(userName, lvl, gameName, result) {
+    try {
+        
+        const dataToSend = /*JSON.stringify*/({
+            userName,
+            lvl,
+            gameName,
+            result
+        });
+        
+        const response = await axios.post('http://localhost:3200/logic', dataToSend);
+        console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
+    } catch (error) {
+        console.error('Произошла ошибка при отправке данных на сервер:', error);
+        
+        console.error(error.response);
+    }
+}
+
   useEffect(() => {
     if (!(localStorage.getItem('userName'))) {
       navigate('/iqsha-games/register')
@@ -60,9 +80,11 @@ const WhatExcess = () => {
 
   function checkAnswer(isTrue) {
     if (isTrue) {
+      sendDataToServer(localStorage.getItem('userName'), value, "Что лишнее?", "хорошо")
       request("Хорошо", value)
       checkForCompleted();
     } else {
+      sendDataToServer(localStorage.getItem('userName'), value, "Что лишнее?", "плохо")
       request("Плохо", value)
       checkForCompleted();
     }

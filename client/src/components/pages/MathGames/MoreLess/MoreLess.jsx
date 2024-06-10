@@ -44,6 +44,25 @@ const MoreLess = () => {
         }
     }
 
+    async function sendDataToServer(userName, lvl, gameName, result) {
+        try {
+            
+            const dataToSend = /*JSON.stringify*/({
+                userName,
+                lvl,
+                gameName,
+                result
+            });
+            
+            const response = await axios.post('http://localhost:3200/math', dataToSend);
+            console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
+        } catch (error) {
+            console.error('Произошла ошибка при отправке данных на сервер:', error);
+            
+            console.error(error.response);
+        }
+    }
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -57,10 +76,12 @@ const MoreLess = () => {
     function checkAnswer() {
         if (userAnswer) {
             if (result) {
+                sendDataToServer(localStorage.getItem('userName'), value, "Больше-меньше", "хорошо")
                 request("Хорошо", value)
                 setIsCompleted(true)
 
             } else {
+                sendDataToServer(localStorage.getItem('userName'), value, "Больше-меньше", "плохо")
                 request("Плохо", value)
                 setIsCompleted(true)
             }

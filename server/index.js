@@ -34,10 +34,42 @@ app.use(bodyParser.json());
 const http = require("http").createServer(app);
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+
+function insertdata(tableName, data) {
+  const query = `INSERT INTO ${tableName} ( userName, date, lvl, gameName, result) VALUES ( ?, NOW(), ?, ?, ?);`;
+  return new Promise((resolve, reject) => {
+      dbconnect.query(query, [data.userName, data.lvl, data.gameName, data.result], (error, results) => {
+          if (error) {
+              reject(error);
+          } else {
+              resolve(results);
+          }
+      });
   });
+}
+
+
+app.post('/chess',  (req, res) => {
+  console.log(req.body);
+    res.send('Hello World!');
+    insertdata('Chess', req.body);
   
+})
+
+app.post('/logic' ,  (req, res)  =>  {
+  console.log(req.body);
+  res.send('Hello World!');
+  insertdata('Logic', req.body);
+})
+
+app.post('/math' ,  (req, res)  =>  {
+  console.log(req.body);
+  res.send('Hello World!');
+  insertdata('Math', req.body);
+})
+
+
+
 
 
 

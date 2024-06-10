@@ -50,6 +50,27 @@ const OneWord = () => {
         }
     }
 
+
+    async function sendDataToServer(userName, lvl, gameName, result) {
+        try {
+            
+            const dataToSend = /*JSON.stringify*/({
+                userName,
+                lvl,
+                gameName,
+                result
+            });
+            
+            const response = await axios.post('http://localhost:3200/logic', dataToSend);
+            console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
+        } catch (error) {
+            console.error('Произошла ошибка при отправке данных на сервер:', error);
+            
+            console.error(error.response);
+        }
+    }
+
+
     const handleChange = (event, newValue) => {
 
 
@@ -79,10 +100,12 @@ const OneWord = () => {
 
     function checkAnswer(isTrue) {
         if (isTrue) {
+            sendDataToServer(localStorage.getItem('userName'), value, "Назови одним словом", "хорошо")
             request("Хорошо", value)
             setIsCompleted(true)
             checkForCompleted();
         } else {
+            sendDataToServer(localStorage.getItem('userName'), value, "Назови одним словом", "плохо")
             request("Плохо", value)
             checkForCompleted();
         }

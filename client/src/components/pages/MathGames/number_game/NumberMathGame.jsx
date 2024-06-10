@@ -15,6 +15,7 @@ import NumberLevelTwo from './Level/NumberLevelTwo';
 import NumberLevelThird from './Level/NumberLevelThird';
 import GameOver from 'Layouts/GameOver/GameOver';
 import Back from 'Layouts/Back/Back';
+import axios from 'axios';
 
 // Images4LevelOne
 import Image1 from 'assets/images/math_games/number/num_2.png'
@@ -130,10 +131,30 @@ const NumberMathGame = () => {
         }
     }
 
+    async function sendDataToServer(userName, lvl, gameName, result) {
+        try {
+            
+            const dataToSend = /*JSON.stringify*/({
+                userName,
+                lvl,
+                gameName,
+                result
+            });
+            
+            const response = await axios.post('http://localhost:3200/math', dataToSend);
+            console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
+        } catch (error) {
+            console.error('Произошла ошибка при отправке данных на сервер:', error);
+            
+            console.error(error.response);
+        }
+    }
+
     function checkAnswer() {
         switch (value) {
             case '1':
                 if (Number(currentAnswer) === answerOne) {
+                    sendDataToServer(localStorage.getItem('userName'), value, "Число.Цифра.Количество", "хорошо")
                     request("Хорошо", value)
                     setIsCompleted(true)
                     setCurrentAnswer("")
@@ -141,6 +162,7 @@ const NumberMathGame = () => {
                     checkForCompleted();
                     setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
                 } else {
+                    sendDataToServer(localStorage.getItem('userName'), value, "Число.Цифра.Количество", "плохо")
                     request("Плохо", value)
                     setCurrentItem(null)
                     checkForCompleted();
@@ -150,6 +172,7 @@ const NumberMathGame = () => {
                 break;
             case '2':
                 if (Number(currentAnswer) === answerTwo) {
+                    sendDataToServer(localStorage.getItem('userName'), value, "Число.Цифра.Количество", "хорошо")
                     request("Хорошо", value)
                     setIsCompleted(true)
                     setCurrentAnswer("")
@@ -158,6 +181,7 @@ const NumberMathGame = () => {
                     setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
 
                 } else {
+                    sendDataToServer(localStorage.getItem('userName'), value, "Число.Цифра.Количество", "плохо")
                     request("Плохо", value)
                     setCurrentItem(null)
                     setCurrentAnswer("")
@@ -167,12 +191,14 @@ const NumberMathGame = () => {
                 break;
             case '3':
                 if (currentAnswer === answerThird) {
+                    sendDataToServer(localStorage.getItem('userName'), value, "Число.Цифра.Количество", "хорошо")
                     request("Хорошо", value)
                     setIsCompleted(true)
                     setCurrentAnswer("")
                     setCurrentItem(null)
                     checkForCompleted();
                 } else {
+                    sendDataToServer(localStorage.getItem('userName'), value, "Число.Цифра.Количество", "плохо")
                     request("Плохо", value)
                     setIsCompleted(true)
                     setCurrentItem(null)

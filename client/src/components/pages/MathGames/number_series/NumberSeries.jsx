@@ -43,6 +43,25 @@ const NumberSeries = () => {
     }
   }
 
+  async function sendDataToServer(userName, lvl, gameName, result) {
+    try {
+        
+        const dataToSend = /*JSON.stringify*/({
+            userName,
+            lvl,
+            gameName,
+            result
+        });
+        
+        const response = await axios.post('http://localhost:3200/math', dataToSend);
+        console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
+    } catch (error) {
+        console.error('Произошла ошибка при отправке данных на сервер:', error);
+        
+        console.error(error.response);
+    }
+}
+
 
   useEffect(() => {
     if (!(localStorage.getItem('userName'))) {
@@ -71,9 +90,11 @@ const NumberSeries = () => {
   function checkAnswer(array) {
     setIsCompleted(true)
     if (array.toString() === answer.toString()) {
+      sendDataToServer(localStorage.getItem('userName'), value, "Числовой ряд", "хорошо")
       request("Хорошо", value)
 
     } else {
+      sendDataToServer(localStorage.getItem('userName'), value, "Числовой ряд", "плохо")
       request("Плохо", value)
     }
     if (Number(value) < 3) {

@@ -112,6 +112,25 @@ const ContinueSeries = () => {
         }
     }
 
+    async function sendDataToServer(userName, lvl, gameName, result) {
+        try {
+            
+            const dataToSend = /*JSON.stringify*/({
+                userName,
+                lvl,
+                gameName,
+                result
+            });
+            
+            const response = await axios.post('http://localhost:3200/logic', dataToSend);
+            console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
+        } catch (error) {
+            console.error('Произошла ошибка при отправке данных на сервер:', error);
+            
+            console.error(error.response);
+        }
+    }
+
     function checkForCompleted() {
         if (Number(value) < 3) {
             setValue(prev => (Number(prev) + 1).toString())
@@ -133,6 +152,7 @@ const ContinueSeries = () => {
             case "1":
                 if (currentItem) {
                     if (currentAnswer === answerOne) {
+                        sendDataToServer(localStorage.getItem('userName'), value, "Продолжи ряд", "хорошо")
                         request("Хорошо", value)
                         setIsCompleted(true)
                         setCurrentAnswer("")
@@ -140,6 +160,7 @@ const ContinueSeries = () => {
                         setDragItems([TWOdraggableOne, TWOdraggableTwo, TWOdraggableThird])
 
                     } else {
+                        sendDataToServer(localStorage.getItem('userName'), value, "Продолжи ряд", "плохо")
                         request("Плохо", value)
                         setCurrentAnswer("")
                         setCurrentItem(null)
@@ -151,6 +172,7 @@ const ContinueSeries = () => {
             case '2':
                 if (currentItem) {
                     if (currentAnswer === answerTwo) {
+                        sendDataToServer(localStorage.getItem('userName'), value, "Продолжи ряд", "хорошо")
                         request("Хорошо", value)
                         setIsCompleted(true)
                         setCurrentAnswer("")
@@ -158,6 +180,7 @@ const ContinueSeries = () => {
                         setDragItems([THIRDdraggableOne, THIRDdraggableTwo, THIRDdraggableThird])
 
                     } else {
+                        sendDataToServer(localStorage.getItem('userName'), value, "Продолжи ряд", "плохо")
                         request("Плохо", value)
                         setCurrentAnswer("")
                         setCurrentItem(null)
@@ -169,11 +192,13 @@ const ContinueSeries = () => {
             case '3':
                 if (currentItem) {
                     if (currentAnswer === answerThird) {
+                        sendDataToServer(localStorage.getItem('userName'), value, "Продолжи ряд", "хорошо")
                         request("Хорошо", value)
                         setIsCompleted(true)
                         setCurrentAnswer("")
                         setCurrentItem(null)
                     } else {
+                        sendDataToServer(localStorage.getItem('userName'), value, "Продолжи ряд", "плохо")
                         request("Плохо", value)
                         setCurrentAnswer("")
                         setCurrentItem(null)

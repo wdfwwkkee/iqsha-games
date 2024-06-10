@@ -22,9 +22,7 @@ import OneWord from 'components/pages/LogicGames/one_word/OneWord';
 import Contacts from 'components/pages/Contact/Contacts';
 import Register from 'components/pages/Register/Register';
 import Report from 'components/pages/Report/Report';
-import ChessData from 'components/dataForDb/chessData';
-import LogicData from 'components/dataForDb/logicData';
-import MathData from 'components/dataForDb/mathData';
+
 
 
 function App() {
@@ -78,10 +76,7 @@ function App() {
 
           {/* Other */}
           <Route element={<Register />} path="/iqsha-games/register" />
-          <Route element={<Report />} path="/iqsha-games/report" />
-          <Route element={<ChessData />} path="/iqsha-games/chessData"  />
-          <Route element={<LogicData />} path="/iqsha-games/logicData"  /> 
-          <Route element={<MathData />} path="/iqsha-games/mathData"   />
+          <Route element={<Report />} path="/iqsha-games/report" />  
 
           <Route path="/*" element={<div>NotFound</div>} />
 

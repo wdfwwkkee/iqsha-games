@@ -61,14 +61,14 @@ const WhosTurn = () => {
   async function sendDataToServer(userName, lvl, gameName, result) {
     try {
         
-        const dataToSend = JSON.stringify({
+        const dataToSend = /*JSON.stringify*/({
             userName,
             lvl,
             gameName,
             result
         });
         
-        const response = await axios.post('http://localhost:3200/', dataToSend);
+        const response = await axios.post('http://localhost:3200/chess', dataToSend);
         console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
     } catch (error) {
         console.error('Произошла ошибка при отправке данных на сервер:', error);
@@ -109,7 +109,7 @@ const WhosTurn = () => {
           checkForCompleted();
         }
         else {
-          sendDataToServer(localStorage.getItem('userName'), value, "Кто так ходит?", "хорошо")
+          sendDataToServer(localStorage.getItem('userName'), value, "Кто так ходит?", "Плохо")
           request("Плохо", value)
           checkForCompleted();
         }
@@ -122,7 +122,7 @@ const WhosTurn = () => {
           checkForCompleted();
         }
         else {
-          sendDataToServer(localStorage.getItem('userName'), value, "Кто так ходит?", "хорошо")
+          sendDataToServer(localStorage.getItem('userName'), value, "Кто так ходит?", "Плохо")
           request("Плохо", value)
           checkForCompleted();
           setIsCompleted(true)

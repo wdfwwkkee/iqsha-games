@@ -57,14 +57,35 @@ const TaskGames = () => {
         }
     }
 
+    async function sendDataToServer(userName, lvl, gameName, result) {
+        try {
+            
+            const dataToSend = /*JSON.stringify*/({
+                userName,
+                lvl,
+                gameName,
+                result
+            });
+            
+            const response = await axios.post('http://localhost:3200/math', dataToSend);
+            console.log('Данные успешно отправлены на сервер. Ответ:', response.data);
+        } catch (error) {
+            console.error('Произошла ошибка при отправке данных на сервер:', error);
+            
+            console.error(error.response);
+        }
+    }
+
     function checkAnswer() {
 
         if (userAnswer) {
             if (userAnswer.toString() === action.toString()) {
+                sendDataToServer(localStorage.getItem('userName'), value, "Задачи", "хорошо")
                 setIsCompleted(true)
                 request("Хорошо", value);
             }
             else {
+                sendDataToServer(localStorage.getItem('userName'), value, "Задачи", "плохо")
                 request("Плохо", value);
             }
         }

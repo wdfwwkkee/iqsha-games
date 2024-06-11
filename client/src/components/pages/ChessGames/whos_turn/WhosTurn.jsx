@@ -29,16 +29,6 @@ import queen_ans from "assets/images/chess_games/queen_ans.jpg"
 import pawn_ans from "assets/images/chess_games/pawn_ans.jpg"
 import rook_ans from "assets/images/chess_games/rook_ans.jpg"
 import king_ans from "assets/images/chess_games/king_ans.jpg"
-<<<<<<< HEAD:src/components/pages/ChessGames/whos_turn/WhosTurn.jsx
-import GameOver from 'Layouts/GameOver/GameOver';
-import Back from 'Layouts/Back/Back';
-import { useNavigate } from 'react-router-dom';
-import getRandomId from 'utils/getRandomId';
-import { db } from 'utils/firestore';
-import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
-=======
-
->>>>>>> ea37ac8922dc4a68364ee44ec8f4919f4f0467ff:client/src/components/pages/ChessGames/whos_turn/WhosTurn.jsx
 
 
 
